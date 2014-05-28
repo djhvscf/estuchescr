@@ -161,40 +161,6 @@
 					</div>
 				</div>
 				<!----//End-mid-head---->
-				<!----start-bottom-header---->
-				<div class="header-bottom">
-					<div class="wrap">
-					<!-- start header menu -->
-							<ul class="megamenu skyblue">
-							<?php
-							 	$modeloControl = new ModeloControl();
-								while ($row = mysql_fetch_array($listarControl))
-								{
-									echo "<li class='grid'><a class='color2' href='#'>$row[nombre]</a>";
-										echo "<div class='megapanel'>";
-											echo "<div class='row'>";
-											$modeloByMarca=$modeloControl->getModeloByIdMarca($row[idMarca]);
-											while ($rowModelo = mysql_fetch_array($modeloByMarca))
-											{
-												echo "<div class='col1'>";
-													echo "<div class='h_nav'>";
-														echo "<h4>$rowModelo[nombre]</h4>";
-														echo "<ul>";
-															echo "<li><a href='designer.html'>Estuches</a></li>";
-														echo "</ul>";
-													echo "</div>";
-												echo "</div>";
-											}
-											echo "</div>";
-										echo "</div>";
-									echo "</li>";
-								}
-							?>
-							</ul>
-					</div>
-				</div>
-			</div>
-				<!----//End-bottom-header---->
 			<!---//End-header---->
 		<!----start-image-slider---->
 		<div class="img-slider">
@@ -205,7 +171,7 @@
 			      <img src="web/images/samsungtest1.jpg" alt="" />
 			    </a>
 			    <div class="slider-detils">
-			    	<h3>IPHONE <label>Estuche</label></h3>
+			    	<h3>IPHONE 0<label>Estuche</label></h3>
 			    	<span>resistente al agua, polvo. No se :/</span>
 			    	<a class="slide-btn" href="details.html"> Comprar ahora</a>
 			    </div>
@@ -215,7 +181,7 @@
 			      <img src="web/images/slide-5.jpg"  alt="" />
 			    </a>
 			     <div class="slider-detils">
-			    	<h3>IPHONE <label>Estuche</label></h3>
+			    	<h3>IPHONE 1<label>Estuche</label></h3>
 			    	<span>resistente al agua, polvo. No se :/</span>
 			    	<a class="slide-btn" href="details.html"> Comprar ahora</a>
 			    </div>
@@ -225,7 +191,7 @@
 			      <img src="web/images/slide-3.jpg" alt="" />
 			    </a>
 			     <div class="slider-detils">
-			    	<h3>IPHONE <label>Estuche</label></h3>
+			    	<h3>IPHONE 2<label>Estuche</label></h3>
 			    	<span>resistente al agua, polvo. No se :/</span>
 			    	<a class="slide-btn" href="details.html"> Comprar ahora</a>
 			    </div>
@@ -241,275 +207,63 @@
 				<div class="content-left">
 						<div class="content-left-top-grid">
 							<div class="content-left-price-selection">
-								<h4>Seleccionar precio:</h4>
-								<div class="price-selection-tree">
-									<span class="col_checkbox">
-										<input id="10" class="web/css-checkbox10" type="checkbox">
-										<label class="normal"><i for="10" name="demo_lbl_10"  class="css-label10"> </i>&#162;  4000</label>
-									</span>
-									<span class="col_checkbox">
-										<input id="11" class="web/css-checkbox11" type="checkbox">
-										<label class="active1"><i for="11" name="demo_lbl_11"  class="css-label11"> </i>&#162; 6000</label>
-									</span>
-									<span class="col_checkbox">
-										<input id="12" class="web/css-checkbox12" type="checkbox">
-										<label class="normal"><i for="12" name="demo_lbl_12"  class="css-label12"> </i>&#162;  8000</label>
-									</span>
-									<span class="col_checkbox">
-										<input id="13" class="web/css-checkbox13" type="checkbox">
-										<label class="normal"><i for="13" name="demo_lbl_13"  class="css-label13"> </i>&#162; 10000</label>
-									</span>
-									<span class="col_checkbox">
-										<input id="14" class="web/css-checkbox14" type="checkbox">
-										<label class="normal"><i for="14" name="demo_lbl_14"  class="css-label14"> </i> &#162; 15000</label>
-									</span>
-									<span class="col_checkbox">
-										<input id="15" class="web/css-checkbox15" type="checkbox">
-										<label class="normal"><i for="15" name="demo_lbl_15"  class="css-label15"> </i>&#162; 20000</label>
-									</span>
-								</div>
-								
-						</div>
+								<h4>Espacio para publicidad</h4>
+							</div>
 						</div>
 						<div class="content-left-bottom-grid">
-							<h4>Otro productos:</h4>
-							<div class="content-left-bottom-grids">
-								<div class="content-left-bottom-grid1">
-									<img src="web/images/foot-ball.jpg" title="football" />
-									<h5><a href="details.html">Nike Strike PL Hi-Vis</a></h5>
-									<span> Fútbol</span>
-									<label>&#162; 5000</label>
-								</div>
-								<div class="content-left-bottom-grid1">
-									<img src="web/images/jarse.jpg" title="jarse" />
-									<h5><a href="details.html">Nike Strike PL Hi-Vis</a></h5>
-									<span> Fútbol</span>
-									<label>&#162; 37500</label>
-								</div>
-							</div>
+							<h4>Espacio para publicidad</h4>
 						</div>
 				</div>
 				<div class="content-right">
 					<div class="product-grids">
 						<!--- start-rate---->
-							<script src="web/js/jstarbox.js"></script>
-							<link rel="stylesheet" href="web/css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
-							<script type="text/javascript">
-								jQuery(function() {
-									jQuery('.starbox').each(function() {
-										var starbox = jQuery(this);
-										starbox.starbox({
-											average: starbox.attr('data-start-value'),
-											changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
-											ghosting: starbox.hasClass('ghosting'),
-											autoUpdateAverage: starbox.hasClass('autoupdate'),
-											buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
-											stars: starbox.attr('data-star-count') || 5
-										}).bind('starbox-value-changed', function(event, value) {
-											if(starbox.hasClass('random')) {
-												var val = Math.random();
-												starbox.next().text(' '+val);
-												return val;
-											} 
-										})
-									});
-								});
-							</script>
 							<!---//End-rate---->
 							<!---caption-script---->
 							<!---//caption-script---->
-						<div onclick="location.href='details.html';" class="product-grid fade">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-									<li><a class="facebook" href="#"><span> </span></a></li>
-									<li><a class="twitter" href="#"><span> </span></a></li>
-									<li><a class="googlep" href="#"><span> </span></a></li>
-									<div class="clear"> </div>
-								</ul>
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href="#"><img src="web/images/samsung-1.jpg" title="product-name" /></a>
-								<p>
-								<a href="#"><small>Samsung</small> NEXUS <small>7</small> FG</a>
-								<span>Algo más descriptivo tal vez</span>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Detalles</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">&#162; 20000</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div onclick="location.href='details.html';"  class="product-grid fade">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-									<li><a class="facebook" href="#"><span> </span></a></li>
-									<li><a class="twitter" href="#"><span> </span></a></li>
-									<li><a class="googlep" href="#"><span> </span></a></li>
-									<div class="clear"> </div>
-								</ul>
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href="#"><img src="web/images/samsung-1.jpg" title="product-name" /></a>
-								<p>
-								<a href="#"><small>Samsung</small> Galaxy <small>S3</small> Mini</a>
-								<span>Algo más descriptivo tal vez</span>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Detalles</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">&#162; 7500</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div onclick="location.href='details.html';"  class="product-grid fade last-grid">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-									<li><a class="facebook" href="#"><span> </span></a></li>
-									<li><a class="twitter" href="#"><span> </span></a></li>
-									<li><a class="googlep" href="#"><span> </span></a></li>
-									<div class="clear"> </div>
-								</ul>
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href="#"><img src="web/images/samsung-2.jpg" title="product-name" /></a>
-								<p>
-								<a href="#"><small>Samsung</small> Galaxy <small>S3</small> Mini</a>
-								<span>Algo más descriptivo tal vez</span>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Detalles</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">&#162; 3500</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div onclick="location.href='details.html';"  class="product-grid fade">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-									<li><a class="facebook" href="#"><span> </span></a></li>
-									<li><a class="twitter" href="#"><span> </span></a></li>
-									<li><a class="googlep" href="#"><span> </span></a></li>
-									<div class="clear"> </div>
-								</ul>
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href="#"><img src="web/images/samsung-1.jpg" title="product-name" /></a>
-								<p>
-								<a href="#"><small>Samsung</small> Galaxy <small>S3</small> Mini</a>
-								<span>Algo más descriptivo tal vez</span>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Detalles</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">&#162; 3700</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div onclick="location.href='details.html';"  class="product-grid fade">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-									<li><a class="facebook" href="#"><span> </span></a></li>
-									<li><a class="twitter" href="#"><span> </span></a></li>
-									<li><a class="googlep" href="#"><span> </span></a></li>
-									<div class="clear"> </div>
-								</ul>
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href="#"><img src="web/images/samsung-2.jpg" title="product-name" /></a>
-								<p>
-								<a href="#"><small>Samsung</small> Galaxy <small>S3</small> Mini</a>
-								<span>Algo más descriptivo tal vez</span>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Detalles</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">&#162; 11355</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div onclick="location.href='details.html';"  class="product-grid fade last-grid">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-									<li><a class="facebook" href="#"><span> </span></a></li>
-									<li><a class="twitter" href="#"><span> </span></a></li>
-									<li><a class="googlep" href="#"><span> </span></a></li>
-									<div class="clear"> </div>
-								</ul>
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (46)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href="#"><img src="web/images/samsung-1.jpg" title="product-name" /></a>
-								<p>
-								<a href="#"><small>Samsung</small> Galaxy <small>S3</small> Mini</a>
-								<span>Algo más descriptivo tal vez</span>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Detalles</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">&#162; 20390</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
+							
+							<?php
+								$rowCount = 1;
+								while ($row = mysql_fetch_array($listarControl))
+								{
+									if($rowCount % 3 == 0)
+									{
+										echo "<div onclick='location.href='details.html';'  class='product-grid fade last-grid'>";
+									}
+									else
+									{
+										echo "<div onclick='location.href='details.html';'  class='product-grid fade'>";
+									}
+										echo "<div class='product-grid-head'>";
+										echo "<ul class='grid-social'>";
+											echo "<li><a class='facebook' href='#'><span> </span></a></li>";
+											echo "<li><a class='twitter' href='#'><span> </span></a></li>";
+											echo "<li><a class='googlep' href='#'><span> </span></a></li>";
+											echo "<div class='clear'> </div>";
+										echo "</ul>";
+										echo "<div class='block'>";
+											
+										echo "</div>";
+									echo "</div>";
+								echo "<div class='product-pic'>";
+								echo "<a href='#'><img src='web/images/samsung-1.jpg' title='product-name' /></a>";
+									echo "<p>";
+									echo "<a href='#'>$row[nombre]</a>";
+									echo "<span>Algo más descriptivo tal vez</span>";
+									echo "</p>";
+									echo "</div>";
+									echo "<div class='product-info'>";
+									echo "<div class='product-info-cust'>";
+									echo "<a href='details.html'>Ver estuches</a>";
+									echo "</div>";
+									echo "<div class='clear'> </div>";
+									echo "</div>";
+									echo "<div class='more-product-info'>";
+									echo "<span> </span>";
+									echo "</div>";
+									echo "</div>";
+									$rowCount ++;
+								}
+							?>
 						<div class="clear"> </div>
 					</div>
 				</div>
