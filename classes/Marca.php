@@ -3,7 +3,6 @@ class Marca {
 	var $idMarca;
 	var $nombre;
 	var $descripcion;
-	var $fotografia;
 	
 	public function __construct() {}
 	
@@ -27,13 +26,6 @@ class Marca {
 	public function getDescripcion() {
 		return $this->descripcion;
 	}
-	
-	/**
-	 * @return the $fotografia
-	 */
-	public function getFotografia() {
-		return $this->fotografia;
-	}
 
 	/**
 	 * @param field_type $idMarca
@@ -54,17 +46,6 @@ class Marca {
 	 */
 	public function setDescripcion($descripcion) {
 		$this->descripcion = $descripcion;
-	}
-
-	/**
-	 * @param field_type $fotografia
-	 */
-	public function setFotografia($fotografia) {
-		$this->fotografia = $fotografia;
-	}
-
-
-	
-	
+	}	
 }
 ?>

@@ -3,7 +3,6 @@ class Anuncio {
 	var $idanuncio;
 	var $titulo;
 	var $descripcion;
-	var $fotografia;
 	var $esActivo;
 	
 	public function __construct() {}
@@ -27,13 +26,6 @@ class Anuncio {
 	 */
 	public function getDescripcion() {
 		return $this->descripcion;
-	}
-
-	/**
-	 * @return the $fotografia
-	 */
-	public function getFotografia() {
-		return $this->fotografia;
 	}
 
 	/**
@@ -62,13 +54,6 @@ class Anuncio {
 	 */
 	public function setDescripcion($descripcion) {
 		$this->descripcion = $descripcion;
-	}
-
-	/**
-	 * @param field_type $fotografia
-	 */
-	public function setFotografia($fotografia) {
-		$this->fotografia = $fotografia;
 	}
 
 	/**

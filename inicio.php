@@ -1,271 +1,204 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<title> SisPro - Inicio </title>
-	<link rel="stylesheet"	type="text/css" href="css/inicioStyle.css"/>
-	<link rel="stylesheet"	type="text/css" href="css/bootstrap.css"/>
-	<link rel="stylesheet"	type="text/css" href="css/style.css"/>
-
-	<script type="text/javascript" src="js/filterTable.js"></script>
-	<script type="text/javascript" src="js/sorttable.js"></script>
-	<script type="text/javascript" src="js/multipaginasTabla.js"></script>
-	<script type="text/javascript" src="js/activarAdmin.js"></script>
-
-
-</head>
-
-<body onLoad="irAPrimera(); ocultarBarraAdminInicio();" id = "wrap">
-<?php
-	// ===== Comprueba Session ==================
-	$id_usuario = 0;
-	$nombre_usuario = "";
-	$rol_usuario = 0;
-	session_start();
-	if(isset($_SESSION['idUsuario'])) {
-		$id_usuario = $_SESSION['idUsuario'];
-		$nombre_usuario = "d";//$_SESSION['nombre_usuario'];
-		$rol_usuario = 1;//$_SESSION['id_estado'];
-	} else {
-		header("Location: login.php?state=false&redirect=inicio.php");
-	}
-	// ==========================================
-	include "Gestor.php";
-	$gestor= new Gestor();
-	$listaProspectos=$gestor->listarProspectos();
-
-	$buscar = "";
-	if(array_key_exists('Buscar',$_GET))
-	{
-		$buscar = $_GET['Buscar'];
-		$listaProspectos = $gestor->buscaProspecto($buscar);
-	}
-	else
-	{
-		$listaProspectos = $gestor->listarProspectos();
-			
-	}
-	
-	if(array_key_exists('page', $_GET)) {
-		$page = $_GET['page'];
-	}
-?>
-<div class="barraNav"><!--Barra fija-->
-    <div class="navbar"><!--Barra de menu superior-->
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                </a>
-                <a class="brand" href="#">Sistema de Administraci&oacute;n de Prospectos</a>
-                <div class="nav-collapse">
-                    <div class="btn-toolbar nav pull-right mantenimiento">
-					<?php
-							if($rol_usuario == 1) {
-							print "
-							<li id = 'mantenimiento'>
-								<a href='#'><i class='icon-wrench icon-white'></i>
-								Mantenimiento
-								</a>
-								<ul class='dropdown-menu'><!--Menu desplegable de mantenimiento-->
-									<li><a href='mantenimientoUsuarios.php'><i class='icon-user'></i> Usuarios</a></li>
-									<li><a href='mantenimientoCarreras.php'><i class='icon-book'></i> Carreras</a></li>
-								</ul>
-							</li>
-							";
-							}
-						?>
-                    	<li>
-                    		<a href="mostrarAyuda.php">Ayuda</a>
-                    	</li>
-                        <div class="btn-toolbar nav usuario">
-                    		<li><a href="#"> <i class="icon-user icon-white"></i>
-                            <div id = "nombreUsuario">
-								<?php print $nombre_usuario; ?>
-							</div>
-                            </a>
-                            <ul class="dropdown-menu"><!--Menu desplegable de mantenimiento-->
-                                <li><a href="detalleUsuarioPorUsuario.php<?php print "?id_usuario=$id_usuario"; ?>"> Cambiar contrase&ntilde;a</a></li>
-                                <li class="divider"></li>
-                                <li><a href="logout.php"> Cerrar sesi&oacute;n</a></li>
-                            </ul>
-                    	</div>        
-                    </div>   
-                </div><!-- /.nav-collapse -->
-            </div>
-        </div><!-- /navbar-inner -->
-                        <ul class="breadcrumb"><!--barra subMenu-->
-                        <li>
-                            <a href="inicio.php">Inicio</a>
-                        </li>
-                    </ul>
-    </div><!-- /navbar -->
-</div><!--Barra fija-->  				 
-  <div id = "header"></div>  
-  <div class = "content">
-  	<div class = "options">
-  		<div id="searchwrapper">
-  			<form class="well form-search">
-		 		<input type="search" class="span4" placeholder="B&uacute;squeda" name="Buscar"  />
-		 		<button type="submit" class="btn">Buscar</button>
-		 		<a class="btn btn-primary pull-right" href="agregarProspecto.php">
-		 			<i class="icon-user icon-white"></i>
-		 			Agregar prospecto
-		 		</a>
-		 	</form>
-		</div><!--SearchWrapper-->
-  	</div><!--Options-->
-  	
-  <div class="theTable">
-  <table class="table table-bordered table-striped sortable">
-  	<thead>
-		<tr>
-			<th>Nombre</th>
-			<th>Primer Apellido</th>
-			<th>Segundo Apellido</th>
-			<th>C&eacute;dula</th>
-			<th>Tel&eacute;fono</th>
-			<th>Correo electr&oacute;nico</th>
-			<th>Último contacto</th>
-			<th>Detalle</th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php
-			$cant = count($listaProspectos);
-			$limit = 10;
-						
-			if(empty($page)){    
-				$page = 1;      
-			}
-			$limitnew = $valorInicial + $limit * $page; 
-			$limitvalue = $limitnew - $limit;
-			
-			
-			$fromRow = ($page - 1) * $limit;
-			$toRow = $fromRow + $limit;
-			for ($i = $fromRow; $i<$toRow; $i++) {
-				$unprospecto = $listaProspectos[$i];
-				$idProspecto = $unprospecto[0];
-				if (isset($idProspecto)) {
-					$ultimoContacto = $gestor->buscarUltimoContactoDeProspecto($idProspecto);
-					echo "<tr>";
-					
-					$queryString = "prospecto=$idProspecto";
-					$urlDetalle = "detalleProspecto.php?" . $queryString;
-					$fechaUltimoContacto = $ultimoContacto[1];
-					if (!$fechaUltimoContacto) {
-						$fechaUltimoContacto = "No posee contactos";
-					} else {
-						$fechaUltimoContacto = date("d/m/y H:i", strtotime($fechaUltimoContacto));  
-					}
-					echo "<td>$unprospecto[1]</td>";
-					echo "<td>$unprospecto[2]</td>";
-					echo "<td>$unprospecto[3]</td>";
-					echo "<td>$unprospecto[4]</td>";
-					echo "<td>$unprospecto[5]</td>";
-					echo "<td>$unprospecto[8]</td>";
-					echo "<td>$fechaUltimoContacto</td>";
-					echo "<td><a href=$urlDetalle>Ver</a></td>";
-					echo "</tr>";
-				}
-			}
-			/*
-			foreach($listaProspectos as $row) {
-					echo "<tr>";
-					$idProspecto = $row[0];
-					$queryString = "prospecto=$idProspecto";
-					$urlDetalle = "detalleProspecto.php?" . $queryString;
-					$ultimoContacto = $gestor->buscarUltimoContactoDeProspecto($idProspecto);
-					$fechaUltimoContacto = $ultimoContacto[1];
-					if (!$fechaUltimoContacto) {
-						$fechaUltimoContacto = "No posee contactos";
-					} else {
-						$fechaUltimoContacto = date("d/m/y H:i", strtotime($fechaUltimoContacto));  
-					}
-					echo "<td>$row[1]</td>";
-					echo "<td>$row[2]</td>";
-					echo "<td>$row[3]</td>";
-					echo "<td>$row[4]</td>";
-					echo "<td>$row[5]</td>";
-					echo "<td>$row[8]</td>";
-					echo "<td>$fechaUltimoContacto</td>";
-					echo "<td><a href=$urlDetalle>Ver</a></td>";
-					echo "</tr>";
-				}*/
- 
-		?>
-	</tbody>
-  </table>
-  </div><!--theTable-->
-  
-<div class="tableFooterOptions"> 
-		<?php
-			$rowInicial = $fromRow + 1;
-			
-			if ($toRow > $cant) {
-				$rowFinal = $cant;
-			} else {
-				$rowFinal = $toRow;
-			}
-			echo "<h4 id='numeroFilas'> Mostrando $rowInicial-$rowFinal de $cant prospectos</h4>";
-			
-			$numofpages = ceil($cant/ $limit);
-
-			 if($page != 1 && $page == $numofpages){
-					$pageprev = $page -1;
-					$finalPageString = "page=$pageprev";
-					$finalPage = "inicio.php?" . $finalPageString; 
-					echo "<a href=$finalPage class='btn btn' id='atras'> <i class='icon-step-backward'></i></a>";
-					echo("<h5 id='pageNumber'> P&aacute;gina $page de $numofpages</h5>");  
-			}else if ($page == 1 && $page != $numofpages)  {
-					$pagenext = $page + 1;
-					$finalPageString1 = "page=$pagenext";
-					$finalPage1 = "inicio.php?" . $finalPageString1; 
-					echo("<h5 id='pageNumber'> P&aacute;gina $page de $numofpages</h5>");  
-					echo "&nbsp; <a href=$finalPage1 class='btn btn' id='delante'> <i class='icon-step-forward'></i></a>";
-
-			} else if ($page == 1 && $page == $numofpages) {
-					echo("<h5 id='pageNumber'> P&aacute;gina $page de $numofpages</h5>");  
-
-			}			
-			else {
-					$backpagenumber = $page -1;
-					$backPageString = "page=$backpagenumber";
-					$backPage = "inicio.php?" . $backPageString; 
-					echo "<a href=$backPage class='btn btn' id='atras'> <i class='icon-step-backward'></i></a>";
-					echo("<h5 id='pageNumber'> P&aacute;gina $page de $numofpages</h5>");
-					$nextpagenumber = $page + 1;
-					$nextPageString = "page=$nextpagenumber";
-					$nextPage = "inicio.php?" . $nextPageString; 
-					echo "&nbsp; <a href=$nextPage class='btn btn' id='delante'> <i class='icon-step-forward'></i></a>";
-
-			}			
-			
-
-			for($i = 1; $i <= $numofpages; ++$i){
-				if($i == $page){
-					//echo("<h5 id='pageNumber'> P&aacute;gina $page de $numofpages</h5>");  
-				}else{
-					$finalPageString1 = "page=$i";
-					$finalPage1 = "inicio.php?" . $finalPageString1; 
-					//echo "&nbsp; <a href=$finalPage1 class='btn btn' id='delante'> <i class='icon-step-forward'></i></a>";
-				}
-			}
-				
-				
-		?>		
-  	
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Estuches Costa Rica</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<link href="web/css/style.css" rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" type="text/css" href="web/css/jquery-ui.css">
+		<!----webfonts---->
+		<link href='web/css/webfont.css' rel='stylesheet' type='text/css'>
+		<!----//webfonts---->
+		<!-- start menu -->
+		<link href="web/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+		<link rel="stylesheet" href="web/css/slippry.css">
 		
-	</div>
-  
-  </div><!--content-->
-  
-  <div id="footerP">
-  <hr> <p> Copyright Yaisoft 2012 &copy; </p> 
-  </div>
-	
-</body>
-
-
+		<script type="application/x-javascript"> 
+			addEventListener("load", function(){ 
+											setTimeout(hideURLbar, 0); 
+									}, false); 
+			function hideURLbar(){ 
+				window.scrollTo(0,1); 
+			};
+		</script>
+		<!----start-alert-scroller---->
+		<script src="web/js/jquery.min.js"></script>
+		<script type="text/javascript" src="web/js/jquery.easy-ticker.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('#demo').hide();
+		});
+		</script>
+		<!----start-alert-scroller---->
+		<script type="text/javascript" src="web/js/megamenu.js"></script>
+		<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+		<script src="web/js/menu_jquery.js"></script>
+		<!-- //End menu -->
+		<!---slider---->
+		<script src="web/js/jquery-ui.js" type="text/javascript"></script>
+		<script src="web/js/scripts-f0e4e0c2.js" type="text/javascript"></script>
+		<script>
+			  jQuery('#jquery-demo').slippry({
+			  // general elements & wrapper
+			  slippryWrapper: '<div class="sy-box jquery-demo" />', // wrapper to wrap everything, including pager
+			  // options
+			  adaptiveHeight: false, // height of the sliders adapts to current slide
+			  useCSS: false, // true, false -> fallback to js if no browser support
+			  autoHover: false,
+			  transition: 'fade'
+			});
+		</script>
+		<!----start-pricerage-seletion---->
+		<script type="text/javascript" src="web/js/jquery-ui.min.js"></script>
+		<script type='text/javascript'>//<![CDATA[ 
+			$(window).load(function(){
+			 $( "#slider-range" ).slider({
+			            range: true,
+			            min: 0,
+			            max: 500,
+			            values: [ 100, 400 ],
+			            slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+			            }
+			 });
+			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+			
+			});//]]>  
+		</script>
+		<!----//End-pricerage-seletion---->
+		<!---move-top-top---->
+		<script type="text/javascript" src="web/js/move-top.js"></script>
+		<script type="text/javascript" src="web/js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+				});
+			});
+		</script>
+		<!---//move-top-top---->
+	</head>
+	<body>
+	<?php
+	include ("control/MarcaControl.php");
+	include ("control/AnuncioControl.php");
+	//include ("control/ModeloControl.php");
+	$marcaControl = new MarcaControl();
+	$listarControl=$marcaControl->getMarcas();
+	$anuncioControl = new AnuncioControl();
+	$listarAnuncios = $anuncioControl->getAnuncios();
+	?>
+		<!---start-wrap---->
+		<!---start-header---->
+		<?php
+			include ("header.php");
+		?>
+		<!---//End-header---->
+		<!----start-image-slider---->
+		<div class="img-slider">
+			<div class="wrap">
+			<ul id="jquery-demo">
+				<?php
+					$rowCount = 1;
+					while ($row = mysql_fetch_array($listarAnuncios))
+					{
+						echo "<li>";
+						echo "<a href='#slide$rowCount'>";
+						echo "<img src='utils/imagen_mostrar.php?id=".$row[idfotografia]."'>";
+						echo "</a>";
+						echo "<div class='slider-detils'>";
+						echo "<h3>$row[titulo]<label>Estuche</label></h3>";
+						echo "<span>$row[descripcion]</span>";
+						echo "<a class='slide-btn'' href='details.html'> Comprar ahora</a>";
+						echo "</div>";
+						echo "</li>";
+						$rowCount++;
+					}
+				?>
+			</ul>
+			</div>
+		</div>
+		<div class="clear"> </div>
+		<!----//End-image-slider---->
+		<!--- start-content---->
+		<div class="content">
+			<div class="wrap">
+				<?php
+					include ("publicidad.php");
+				?>
+				<div class="content-right">
+					<div class="product-grids">
+						<!--- start-rate---->
+							<!---//End-rate---->
+							<!---caption-script---->
+							<!---//caption-script---->
+							<?php
+								$rowCount = 1;
+								while ($row = mysql_fetch_array($listarControl))
+								{
+									header("Content-type:image/jpeg");
+									$idmarca= $row[0];
+									$queryString = "marca=$idmarca";
+									$urlVer = "estuches.php?" . $queryString;
+									if($rowCount % 3 == 0)
+									{
+										echo "<div onclick='location.href='details.html';'  class='product-grid fade last-grid'>";
+									}
+									else
+									{
+										echo "<div onclick='location.href='details.html';'  class='product-grid fade'>";
+									}
+										echo "<div class='product-grid-head'>";
+										echo "<ul class='grid-social'>";
+											echo "<li><a class='facebook' href='#'><span> </span></a></li>";
+											echo "<li><a class='twitter' href='#'><span> </span></a></li>";
+											echo "<li><a class='googlep' href='#'><span> </span></a></li>";
+											echo "<div class='clear'> </div>";
+										echo "</ul>";
+										echo "<div class='block'>";
+											
+										echo "</div>";
+									echo "</div>";
+									echo "<div class='product-pic'>";
+									echo "<a href='#'>";
+									echo "<img src='utils/imagen_mostrar.php?id=".$row[idfotografia]."'>";
+									echo "</a>";
+									echo "<p>";
+									echo "<a href='#'></a>";
+									echo "<span>$row[descripcion]</span>";
+									echo "</p>";
+									echo "</div>";
+									echo "<div class='product-info'>";
+									echo "<div class='product-info-cust'>";
+									echo "<a href=$urlVer>Ver modelos</a>";
+									echo "</div>";
+									echo "<div class='clear'> </div>";
+									echo "</div>";
+									echo "<div class='more-product-info'>";
+									echo "<span> </span>";
+									echo "</div>";
+									echo "</div>";
+									$rowCount ++;
+								}
+							?>
+						<div class="clear"> </div>
+					</div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<!---- start-bottom-grids---->
+		<?php
+			include ("enlaces.php");
+		?>
+		<!---- //End-bottom-grids---->
+		<!--- //End-content---->
+		<!---start-footer---->
+		<?php
+			include ("footer.php");
+		?>
+		<!---//End-footer---->
+		<!---//End-wrap---->
+	</body>
 </html>
+

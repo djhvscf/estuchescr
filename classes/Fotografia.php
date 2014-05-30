@@ -5,6 +5,8 @@ class Fotografia {
 	var $descripcion;
 	var $idModelo;
 	var $idAlbum;
+	var $idMarca;
+	var $idAnuncio;
 	var $tipo;
 	
 	public function __construct() {}
@@ -43,7 +45,21 @@ class Fotografia {
 	public function getIdAlbum() {
 		return $this->idAlbum;
 	}
-	
+
+	/**
+	 * @return the $idMarca
+	 */
+	public function getIdMarca() {
+		return $this->idMarca;
+	}
+
+	/**
+	 * @return the $idAnuncio
+	 */
+	public function getIdAnuncio() {
+		return $this->idAnuncio;
+	}
+
 	/**
 	 * @return the $tipo
 	 */
@@ -87,10 +103,27 @@ class Fotografia {
 	}
 
 	/**
+	 * @param field_type $idMarca
+	 */
+	public function setIdMarca($idMarca) {
+		$this->idMarca = $idMarca;
+	}
+
+	/**
+	 * @param field_type $idAnuncio
+	 */
+	public function setIdAnuncio($idAnuncio) {
+		$this->idAnuncio = $idAnuncio;
+	}
+
+	/**
 	 * @param field_type $tipo
 	 */
 	public function setTipo($tipo) {
 		$this->tipo = $tipo;
 	}
+
+
+	
 }
 ?>

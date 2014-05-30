@@ -14,8 +14,8 @@ class MarcaControl {
 	{
 		$sql = "";
 		$rs = false;
-		$sql = "SELECT marca.idMarca, marca.nombre, marca.descripcion
-		FROM marca";
+		$sql = "SELECT marca.idMarca, marca.nombre, marca.descripcion, fotografia.idfotografia
+		FROM marca LEFT JOIN fotografia ON fotografia.idMarca = marca.idMarca";
 		$rs = $this->acceso->ejecutarSQL($sql);
 		$this->acceso->cerrarConexion();
 		return $rs;

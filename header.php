@@ -62,7 +62,7 @@ var $cart = $('#cart');
 		</form>
 		</div>
 		<div class="mid-grid-left">
-		<a class="logo" href="#">
+		<a class="logo" href="inicio.php">
 		<img src="web/images/logo.png" alt="Estuches Costa Rica" style="max-width: 50%; min-height: 20%; max-height: 34%; min-width: 50%; margin-left: -44%;"/>
 		</a>
 		</div>

@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title> SisPro Cenfotec </title>	
+	<title> Estuches Costa Rica </title>	
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/loginStyle.css" />
 	<script type="text/javascript" src="js/loginValidation.js"></script>
@@ -8,10 +8,10 @@
 <body id="login">
 	<?php
 		$estado = "";
-		$redirect = "../estuches.php";
+		$redirect = "../inicio.php";
 		session_start();
 		if(isset($_SESSION['idUsuario'])) {
-			header ("Location: estuches.php");
+			header ("Location: inicio.php");
 		}
 		if(array_key_exists('state',$_GET)){
 			$estado = $_GET['state'];
