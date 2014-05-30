@@ -4,6 +4,7 @@
 		<title>Estuches Costa Rica</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="utf-8">
+		 <link rel="shortcut icon" href="web/images/favicon.ico" />
 		<link href="web/css/style.css" rel='stylesheet' type='text/css' />
 		<link rel="stylesheet" type="text/css" href="web/css/jquery-ui.css">
 		<!----webfonts---->
