@@ -80,122 +80,41 @@
 	</head>
 	<body>
 	<?php
-	include ("classes/MarcaControl.php");
-	include ("classes/ModeloControl.php");
+	include ("control/MarcaControl.php");
+	include ("control/AnuncioControl.php");
+	//include ("control/ModeloControl.php");
 	$marcaControl = new MarcaControl();
 	$listarControl=$marcaControl->getMarcas();
-	
-	/*include ("classes/ModeloControl.php");
-	$modeloControl = new ModeloControl();
-	$modeloByMarca=$modeloControl->getModeloByIdMarca(1);
-	echo $modeloByMarca;*/
+	$anuncioControl = new AnuncioControl();
+	$listarAnuncios = $anuncioControl->getAnuncios();
 	?>
 		<!---start-wrap---->
-			<!---start-header---->
-			<div class="header">
-				<div class="top-header">
-					<div class="wrap">
-						<div class="top-header-left">
-							<ul>
-								<!---cart-tonggle-script---->
-								<script type="text/javascript">
-									$(function(){
-									    var $cart = $('#cart');
-									        $('#clickme').click(function(e) {
-									         e.stopPropagation();
-									       if ($cart.is(":hidden")) {
-									           $cart.slideDown("slow");
-									       } else {
-									           $cart.slideUp("slow");
-									       }
-									    });
-									    $(document.body).click(function () {
-									       if ($cart.not(":hidden")) {
-									           $cart.slideUp("slow");
-									       } 
-									    });
-									    });
-								</script>
-								<!---//cart-tonggle-script---->
-								<li><a class="cart" href="#"><span id="clickme"> </span></a></li>
-								<!---start-cart-bag---->
-								<div id="cart">Tu carrito esta vacío <span>(0)</span></div>
-								<!---start-cart-bag---->
-								<li><a class="info" href="#"><span> </span></a></li>
-							</ul>
-						</div>
-						<div class="top-header-center">
-							<div class="top-header-center-alert-left">
-								<h3>Entrega gratis</h3>
-							</div>
-							<div class="top-header-center-alert-right">
-								<div class="vticker">
-								  <ul>
-									  <li>Aplica solo para compras en el GAM <label>No disponible para otros sectores</label></li>
-								  </ul>
-								</div>
-							</div>
-							<div class="clear"> </div>
-						</div>
-						<div class="top-header-right" style="margin-top:-32px;">
-							<ul>
-								<!----//<li><a href="login.html">Login!</a><span> </span></li>---->
-								<!----//<<li><a href="register.html">Registráte!</a></li>---->
-							</ul>
-						</div>
-						<div class="clear"> </div>
-					</div>
-				</div>
-				<!----start-mid-head---->
-				<div class="mid-header">
-					<div class="wrap">
-						<div class="mid-grid-left">
-							<form>
-								<input type="text" placeholder="¿Cuál es tu modelo de teléfono?" />
-							</form>
-						</div>
-						<div class="mid-grid-right">
-							<a class="logo" href="index.html"></a><!----//LOGO---->
-						</div>
-						<div class="clear"> </div>
-					</div>
-				</div>
-				<!----//End-mid-head---->
-			<!---//End-header---->
+		<!---start-header---->
+		<?php
+			include ("header.php");
+		?>
+		<!---//End-header---->
 		<!----start-image-slider---->
 		<div class="img-slider">
 			<div class="wrap">
 			<ul id="jquery-demo">
-			  <li>
-			    <a href="#slide1">
-			      <img src="web/images/samsungtest1.jpg" alt="" />
-			    </a>
-			    <div class="slider-detils">
-			    	<h3>IPHONE 0<label>Estuche</label></h3>
-			    	<span>resistente al agua, polvo. No se :/</span>
-			    	<a class="slide-btn" href="details.html"> Comprar ahora</a>
-			    </div>
-			  </li>
-			  <li>
-			    <a href="#slide2">
-			      <img src="web/images/slide-5.jpg"  alt="" />
-			    </a>
-			     <div class="slider-detils">
-			    	<h3>IPHONE 1<label>Estuche</label></h3>
-			    	<span>resistente al agua, polvo. No se :/</span>
-			    	<a class="slide-btn" href="details.html"> Comprar ahora</a>
-			    </div>
-			  </li>
-			  <li>
-			    <a href="#slide3">
-			      <img src="web/images/slide-3.jpg" alt="" />
-			    </a>
-			     <div class="slider-detils">
-			    	<h3>IPHONE 2<label>Estuche</label></h3>
-			    	<span>resistente al agua, polvo. No se :/</span>
-			    	<a class="slide-btn" href="details.html"> Comprar ahora</a>
-			    </div>
-			  </li>
+				<?php
+					$rowCount = 1;
+					while ($row = mysql_fetch_array($listarAnuncios))
+					{
+						echo "<li>";
+						echo "<a href='#slide$rowCount'>";
+						echo "<img src='web/images/samsungtest1.jpg' alt='' />";
+						echo "</a>";
+						echo "<div class='slider-detils'>";
+						echo "<h3>$row[titulo]<label>Estuche</label></h3>";
+						echo "<span>$row[descripcion]</span>";
+						echo "<a class='slide-btn'' href='details.html'> Comprar ahora</a>";
+						echo "</div>";
+						echo "</li>";
+						$rowCount++;
+					}
+				?>
 			</ul>
 			</div>
 		</div>
@@ -204,23 +123,15 @@
 		<!--- start-content---->
 		<div class="content">
 			<div class="wrap">
-				<div class="content-left">
-						<div class="content-left-top-grid">
-							<div class="content-left-price-selection">
-								<h4>Espacio para publicidad</h4>
-							</div>
-						</div>
-						<div class="content-left-bottom-grid">
-							<h4>Espacio para publicidad</h4>
-						</div>
-				</div>
+				<?php
+					include ("publicidad.php");
+				?>
 				<div class="content-right">
 					<div class="product-grids">
 						<!--- start-rate---->
 							<!---//End-rate---->
 							<!---caption-script---->
 							<!---//caption-script---->
-							
 							<?php
 								$rowCount = 1;
 								while ($row = mysql_fetch_array($listarControl))
@@ -271,49 +182,15 @@
 			</div>
 		</div>
 		<!---- start-bottom-grids---->
-		<div class="bottom-grids">
-			<div class="bottom-top-grids">
-				<div class="wrap">
-					<div class="bottom-top-grid">
-						<h4>Obtener ayuda</h4>
-						<ul>
-							<li><a href="#">Contactenos</a></li>
-							<li><a href="#">Compras</a></li>
-							<li><a href="#">Entregas</a></li>
-							<li><a href="#">Pedidos</a></li>
-						</ul>
-					</div>
-					<div class="bottom-top-grid">
-						<h4>Pedidos</h4>
-						<ul>
-							<li><a href="#">Opciones de pago</a></li>
-							<li><a href="#">Entregas</a></li>
-							<li><a href="#">Devoluciones</a></li>
-						</ul>
-					</div>
-					<div class="clear"> </div>
-				</div>
-			</div>
-		</div>
+		<?php
+			include ("enlaces.php");
+		?>
 		<!---- //End-bottom-grids---->
 		<!--- //End-content---->
 		<!---start-footer---->
-		<div class="footer">
-			<div class="wrap">
-				<div class="footer-left">
-					<ul>
-						<li><a href="#"></a> <span> </span></li>
-						<li><a href="#"></a> <span> </span></li>
-						<li><a href="#"></a> <span> </span></li>
-						<li><a href="#"></a> <span> </span></li>
-						<li><a href="#"></a> <span> </span></li>
-						<li><a href="#"></a></li>
-						<div class="clear"> </div>
-					</ul>
-				</div>
-				<div class="clear"> </div>
-			</div>
-		</div>
+		<?php
+			include ("footer.php");
+		?>
 		<!---//End-footer---->
 		<!---//End-wrap---->
 	</body>

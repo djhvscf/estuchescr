@@ -1,6 +1,6 @@
 <?php
 
-include "AccesoDatos.php";
+include "../bd/AccesoDatos.php";
 error_reporting(0);
 class Gestor {
 	var $acceso;

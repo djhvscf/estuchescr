@@ -4,34 +4,50 @@ class Usuario {
 	var $nombre;
 	var $contrasenna;
 	
-	function setIdUsuario($pIdUsuario)
-	{
-		$this->idUsuario = $pIdUsuario;
-	}
+	public function __construct() {}
 	
-	function setNombre($pNombre)
-	{
-		$this->nombre = $pNombre;
-	}
-	
-	function setContrasenna($pContrasenna)
-	{
-		$this->contrasenna = $pContrasenna;
-	}
-	
-	function getIdUsuario()
-	{
+	/**
+	 * @return the $idUsuario
+	 */
+	public function getIdUsuario() {
 		return $this->idUsuario;
 	}
-	
-	function getNombre()
-	{
+
+	/**
+	 * @return the $nombre
+	 */
+	public function getNombre() {
 		return $this->nombre;
 	}
-	
-	function getContrasenna()
-	{
+
+	/**
+	 * @return the $contrasenna
+	 */
+	public function getContrasenna() {
 		return $this->contrasenna;
 	}
+
+	/**
+	 * @param field_type $idUsuario
+	 */
+	public function setIdUsuario($idUsuario) {
+		$this->idUsuario = $idUsuario;
+	}
+
+	/**
+	 * @param field_type $nombre
+	 */
+	public function setNombre($nombre) {
+		$this->nombre = $nombre;
+	}
+
+	/**
+	 * @param field_type $contrasenna
+	 */
+	public function setContrasenna($contrasenna) {
+		$this->contrasenna = $contrasenna;
+	}
+
+	
 }
 ?>

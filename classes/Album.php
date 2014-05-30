@@ -4,34 +4,51 @@ class Album {
 	var $nombre;
 	var $descripcion;
 	
-	function setIdAlbum($pIdAlbum)
-	{
-		$this->idAlbum = $pIdAlbum;
-	}
+	public function __construct() {}
 	
-	function setNombre($pNombre)
-	{
-		$this->nombre = $pNombre;
-	}
-	
-	function setDescripcion($pDescripcion)
-	{
-		$this->descripcion = $pDescripcion;
-	}
-	
-	function getIdAlbum()
-	{
+	/**
+	 * @return the $idAlbum
+	 */
+	public function getIdAlbum() {
 		return $this->idAlbum;
 	}
-	
-	function getNombre()
-	{
+
+	/**
+	 * @return the $nombre
+	 */
+	public function getNombre() {
 		return $this->nombre;
 	}
-	
-	function getDescripcion()
-	{
+
+	/**
+	 * @return the $descripcion
+	 */
+	public function getDescripcion() {
 		return $this->descripcion;
 	}
+
+	/**
+	 * @param field_type $idAlbum
+	 */
+	public function setIdAlbum($idAlbum) {
+		$this->idAlbum = $idAlbum;
+	}
+
+	/**
+	 * @param field_type $nombre
+	 */
+	public function setNombre($nombre) {
+		$this->nombre = $nombre;
+	}
+
+	/**
+	 * @param field_type $descripcion
+	 */
+	public function setDescripcion($descripcion) {
+		$this->descripcion = $descripcion;
+	}
+
+	
+	
 }
 ?>

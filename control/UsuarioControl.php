@@ -1,6 +1,6 @@
 <?php
-include "AccesoDatos.php";
-include "Usuario.php";
+include "../bd/AccesoDatos.php";
+include "../classes/Usuario.php";
 class UsuarioControl {
 	
 	var $acceso;

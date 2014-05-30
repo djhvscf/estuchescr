@@ -514,6 +514,7 @@
 /*----start-slider-detils----*/
 .img-slider{
 	position:relative;
+	margin-top:-14px;
 }
 .slider-detils{
 	position: absolute;
