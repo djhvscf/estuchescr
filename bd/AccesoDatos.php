@@ -9,11 +9,11 @@ class AccesoDatos{
 	var $database = "estuchescr";
 	
 	public function AccesoDatos(){
-		$enlace = mysql_connect($server, $user, $password);
+		$enlace = mysql_connect("localhost:3306", "root", "mtrlnk");
 		if  (!$enlace) {
 			die('No pudo conectarse: ' . mysql_error());
 		}
-		mysql_select_db($database, $enlace);
+		mysql_select_db("estuchescr", $enlace);
 	}
 	
 	public function ejecutarSQL($psql){	

@@ -4,7 +4,7 @@
 		<title>Estuches Costa Rica</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="utf-8">
-		 <link rel="shortcut icon" href="favicon.ico" />
+		<link rel="shortcut icon" href="favicon.ico" />
 		<link href="web/css/style.css" rel='stylesheet' type='text/css' />
 		<link rel="stylesheet" type="text/css" href="web/css/jquery-ui.css">
 		<!----webfonts---->
@@ -81,13 +81,10 @@
 	</head>
 	<body>
 	<?php
-	include ("control/MarcaControl.php");
-	include ("control/AnuncioControl.php");
-	//include ("control/ModeloControl.php");
-	$marcaControl = new MarcaControl();
-	$listarControl=$marcaControl->getMarcas();
-	$anuncioControl = new AnuncioControl();
-	$listarAnuncios = $anuncioControl->getAnuncios();
+	include ("control/ModeloControl.php");
+	$idMarca= $_GET['marca'];
+	$modeloControl = new ModeloControl();
+	$listarModelos=$modeloControl->getModeloByIdMarca($idMarca);
 	?>
 		<!---start-wrap---->
 		<!---start-header---->
@@ -95,32 +92,6 @@
 			include ("header.php");
 		?>
 		<!---//End-header---->
-		<!----start-image-slider---->
-		<div class="img-slider">
-			<div class="wrap">
-			<ul id="jquery-demo">
-				<?php
-					$rowCount = 1;
-					while ($row = mysql_fetch_array($listarAnuncios))
-					{
-						echo "<li>";
-						echo "<a href='#slide$rowCount'>";
-						echo "<img src='utils/imagen_mostrar.php?id=".$row[idfotografia]."'>";
-						echo "</a>";
-						echo "<div class='slider-detils'>";
-						echo "<h3>$row[titulo]<label>Estuche</label></h3>";
-						echo "<span>$row[descripcion]</span>";
-						echo "<a class='slide-btn'' href='details.html'> Comprar ahora</a>";
-						echo "</div>";
-						echo "</li>";
-						$rowCount++;
-					}
-				?>
-			</ul>
-			</div>
-		</div>
-		<div class="clear"> </div>
-		<!----//End-image-slider---->
 		<!--- start-content---->
 		<div class="content">
 			<div class="wrap">
@@ -135,12 +106,8 @@
 							<!---//caption-script---->
 							<?php
 								$rowCount = 1;
-								while ($row = mysql_fetch_array($listarControl))
+								while ($row = mysql_fetch_array($listarModelos))
 								{
-									header("Content-type:image/jpeg");
-									$idmarca= $row[0];
-									$queryString = "marca=$idmarca";
-									$urlVer = "estuches.php?" . $queryString;
 									if($rowCount % 3 == 0)
 									{
 										echo "<div onclick='location.href='details.html';'  class='product-grid fade last-grid'>";
@@ -165,13 +132,13 @@
 									echo "<img src='utils/imagen_mostrar.php?id=".$row[idfotografia]."'>";
 									echo "</a>";
 									echo "<p>";
-									echo "<a href='#'></a>";
+									echo "<a href='#'>$row[nombre]</a>";
 									echo "<span>$row[descripcion]</span>";
 									echo "</p>";
 									echo "</div>";
 									echo "<div class='product-info'>";
 									echo "<div class='product-info-cust'>";
-									echo "<a href=$urlVer>Ver modelos</a>";
+									echo "<a href='#'>Ver estuches</a>";
 									echo "</div>";
 									echo "<div class='clear'> </div>";
 									echo "</div>";
