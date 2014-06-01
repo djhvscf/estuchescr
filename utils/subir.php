@@ -22,7 +22,6 @@ if (is_uploaded_file($_FILES["userfile"]["tmp_name"]))
 
 		# Escapa caracteres especiales
 		$imagenEscapes=mysql_real_escape_string(file_get_contents($_FILES["userfile"]["tmp_name"]));
-
 		# Agregamos la imagen a la base de datos
 		//$result=mysql_query("INSERT INTO `imagephp` (anchura,altura,tipo,imagen) VALUES (".$info[0].",".$info[1].",'".$_FILES["userfile"]["type"]."','".$imagenEscapes."')",$link);
 		$result=mysql_query("INSERT INTO `fotografia` (descripcion,tipo,fuente) VALUES (".$info[0].",'".$_FILES["userfile"]["type"]."','".$imagenEscapes."')",$enlace);

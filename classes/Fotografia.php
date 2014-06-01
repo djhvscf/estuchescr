@@ -7,6 +7,7 @@ class Fotografia {
 	var $idAlbum;
 	var $idMarca;
 	var $idAnuncio;
+	var $idEstuche;
 	var $tipo;
 	
 	public function __construct() {}
@@ -58,6 +59,13 @@ class Fotografia {
 	 */
 	public function getIdAnuncio() {
 		return $this->idAnuncio;
+	}
+
+	/**
+	 * @return the $idEstuche
+	 */
+	public function getIdEstuche() {
+		return $this->idEstuche;
 	}
 
 	/**
@@ -117,13 +125,20 @@ class Fotografia {
 	}
 
 	/**
+	 * @param field_type $idEstuche
+	 */
+	public function setIdEstuche($idEstuche) {
+		$this->idEstuche = $idEstuche;
+	}
+
+	/**
 	 * @param field_type $tipo
 	 */
 	public function setTipo($tipo) {
 		$this->tipo = $tipo;
 	}
 
-
+	
 	
 }
 ?>

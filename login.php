@@ -8,10 +8,10 @@
 <body id="login">
 	<?php
 		$estado = "";
-		$redirect = "../inicio.php";
+		$redirect = "../index.php";
 		session_start();
 		if(isset($_SESSION['idUsuario'])) {
-			header ("Location: inicio.php");
+			header ("Location: index.php");
 		}
 		if(array_key_exists('state',$_GET)){
 			$estado = $_GET['state'];

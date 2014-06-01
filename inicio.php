@@ -140,7 +140,7 @@
 									header("Content-type:image/jpeg");
 									$idmarca= $row[0];
 									$queryString = "marca=$idmarca";
-									$urlVer = "estuches.php?" . $queryString;
+									$urlVer = "modelos.php?" . $queryString;
 									if($rowCount % 3 == 0)
 									{
 										echo "<div onclick='location.href='details.html';'  class='product-grid fade last-grid'>";
