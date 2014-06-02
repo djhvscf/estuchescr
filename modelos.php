@@ -81,10 +81,10 @@
 	</head>
 	<body>
 	<?php
-	include ("control/EstucheControl.php");
-	$idModelo= $_GET['modelo'];
-	$estucheControl = new EstucheControl();
-	$listarModelos=$estucheControl->getEstucheByModelo($idModelo);
+	include ("control/ModeloControl.php");
+	$idMarca= $_GET['marca'];
+	$modeloControl = new ModeloControl();
+	$listarModelos=$modeloControl->getModeloByIdMarca($idMarca);
 	?>
 		<!---start-wrap---->
 		<!---start-header---->
@@ -108,6 +108,9 @@
 								$rowCount = 1;
 								while ($row = mysql_fetch_array($listarModelos))
 								{
+									$idestuche= $row[0];
+									$queryString = "estuche=$idestuche";
+									$urlVer = "estuches.php?" . $queryString;
 									if($rowCount % 3 == 0)
 									{
 										echo "<div onclick='location.href='details.html';'  class='product-grid fade last-grid'>";
@@ -169,4 +172,3 @@
 		<!---//End-wrap---->
 	</body>
 </html>
-

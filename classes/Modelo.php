@@ -5,44 +5,62 @@ class Modelo {
 	var $descripcion;
 	var $idMarca;
 	
-	function setIdModelo($pIdModelo)
-	{
-		$this->idModelo = $pIdModelo;
-	}
+	public function __construct() {}
 	
-	function setIdMarca($pIdMarca)
-	{
-		$this->idMarca = $pIdMarca;
-	}
-	
-	function setNombre($pNombre)
-	{
-		$this->nombre = $pNombre;
-	}
-	
-	function setDescripcion($pDescripcion)
-	{
-		$this->descripcion = $pDescripcion;
-	}
-	
-	function getIdModelo()
-	{
+	/**
+	 * @return the $idModelo
+	 */
+	public function getIdModelo() {
 		return $this->idModelo;
 	}
-	
-	function getIdMarca()
-	{
-		return $this->idMarca;
-	}
-	
-	function getNombre()
-	{
+
+	/**
+	 * @return the $nombre
+	 */
+	public function getNombre() {
 		return $this->nombre;
 	}
-	
-	function getDescripcion()
-	{
+
+	/**
+	 * @return the $descripcion
+	 */
+	public function getDescripcion() {
 		return $this->descripcion;
+	}
+
+	/**
+	 * @return the $idMarca
+	 */
+	public function getIdMarca() {
+		return $this->idMarca;
+	}
+
+	/**
+	 * @param field_type $idModelo
+	 */
+	public function setIdModelo($idModelo) {
+		$this->idModelo = $idModelo;
+	}
+
+	/**
+	 * @param field_type $nombre
+	 */
+	public function setNombre($nombre) {
+		$this->nombre = $nombre;
+	}
+
+	/**
+	 * @param field_type $descripcion
+	 */
+	public function setDescripcion($descripcion) {
+		$this->descripcion = $descripcion;
+	}
+
+	/**
+	 * @param field_type $idMarca
+	 */
+	public function setIdMarca($idMarca) {
+		$this->idMarca = $idMarca;
 	}
 }
 ?>

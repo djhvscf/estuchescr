@@ -95,98 +95,71 @@
 			include ("header.php");
 		?>
 		<!---//End-header---->
-		<!----start-image-slider---->
-		<div class="img-slider">
-			<div class="wrap">
-			<ul id="jquery-demo">
-				<?php
-					$rowCount = 1;
-					while ($row = mysql_fetch_array($listarAnuncios))
-					{
-						echo "<li>";
-						echo "<a href='#slide$rowCount'>";
-						echo "<img src='utils/imagen_mostrar.php?id=".$row[idfotografia]."'>";
-						echo "</a>";
-						echo "<div class='slider-detils'>";
-						echo "<h3>$row[titulo]<label>Estuche</label></h3>";
-						echo "<span>$row[descripcion]</span>";
-						echo "<a class='slide-btn'' href='details.html'> Comprar ahora</a>";
-						echo "</div>";
-						echo "</li>";
-						$rowCount++;
-					}
-				?>
-			</ul>
-			</div>
-		</div>
-		<div class="clear"> </div>
-		<!----//End-image-slider---->
 		<!--- start-content---->
-		<div class="content">
-			<div class="wrap">
-				<?php
-					include ("publicidad.php");
-				?>
-				<div class="content-right">
-					<div class="product-grids">
-						<!--- start-rate---->
-							<!---//End-rate---->
-							<!---caption-script---->
-							<!---//caption-script---->
-							<?php
-								$rowCount = 1;
-								while ($row = mysql_fetch_array($listarControl))
-								{
-									header("Content-type:image/jpeg");
-									$idmarca= $row[0];
-									$queryString = "marca=$idmarca";
-									$urlVer = "modelos.php?" . $queryString;
-									if($rowCount % 3 == 0)
-									{
-										echo "<div onclick='location.href='details.html';'  class='product-grid fade last-grid'>";
-									}
-									else
-									{
-										echo "<div onclick='location.href='details.html';'  class='product-grid fade'>";
-									}
-										echo "<div class='product-grid-head'>";
-										echo "<ul class='grid-social'>";
-											echo "<li><a class='facebook' href='#'><span> </span></a></li>";
-											echo "<li><a class='twitter' href='#'><span> </span></a></li>";
-											echo "<li><a class='googlep' href='#'><span> </span></a></li>";
-											echo "<div class='clear'> </div>";
-										echo "</ul>";
-										echo "<div class='block'>";
-											
-										echo "</div>";
-									echo "</div>";
-									echo "<div class='product-pic'>";
-									echo "<a href='#'>";
-									echo "<img src='utils/imagen_mostrar.php?id=".$row[idfotografia]."'>";
-									echo "</a>";
-									echo "<p>";
-									echo "<a href='#'></a>";
-									echo "<span>$row[descripcion]</span>";
-									echo "</p>";
-									echo "</div>";
-									echo "<div class='product-info'>";
-									echo "<div class='product-info-cust'>";
-									echo "<a href=$urlVer>Ver modelos</a>";
-									echo "</div>";
-									echo "<div class='clear'> </div>";
-									echo "</div>";
-									echo "<div class='more-product-info'>";
-									echo "<span> </span>";
-									echo "</div>";
-									echo "</div>";
-									$rowCount ++;
-								}
-							?>
-						<div class="clear"> </div>
-					</div>
-				</div>
-				<div class="clear"> </div>
+		<div class="content contact-main">
+			<!----start-contact---->
+			<div class="contact-info">
+					<div class="map">
+					 	<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px"></a></small>
+					 </div>
+					 <div class="wrap">
+					 <div class="contact-grids">
+							 <div class="col_1_of_bottom span_1_of_first1">
+								    <h5>Dirección:</h5>
+								    <ul class="list3">
+										<li>
+											<img src="web/images/home.png" alt="">
+											<div class="extra-wrap">
+											 <p>Lorem ipsum  consectetu,<br>dolor sit amet,.</p>
+											</div>
+										</li>
+									</ul>
+							    </div>
+								<div class="col_1_of_bottom span_1_of_first1">
+								    <h5>Teléfonos</h5>
+									<ul class="list3">
+										<li>
+											   <img src="web/images/phone.png" alt="">
+											<div class="extra-wrap">
+												<p><span>Celular:</span>(+506) 8888-88-88</p>
+											</div>
+												<img src="web/images/fax.png" alt="">
+											<div class="extra-wrap">
+												<p><span>FAX:</span>(+506) 2222-22-22</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="col_1_of_bottom span_1_of_first1">
+									 <h5>Correo</h5>
+								    <ul class="list3">
+										<li>
+											<img src="web/images/email.png" alt="">
+											<div class="extra-wrap">
+											  <p><span class="mail"><a href="mailto:yoursite.com">Estuches Costa Rica</a></span></p>
+											</div>
+										</li>
+									</ul>
+							    </div>
+								<div class="clear"></div>
+					 </div>
+					 	<form method="post" action="contact-post.html">
+					          <div class="contact-form">
+								<div class="contact-to">
+			                     	<input type="text" class="text" value="Nombre..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre...';}">
+								 	<input type="text" class="text" value="Correo..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Correo...';}">
+								 	<input type="text" class="text" value="Tema" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tema...';}">
+								</div>
+								<div class="text2">
+				                   <textarea value="Mensaje:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mensaje';}">Mensaje..</textarea>
+				                </div>
+				               <span><input type="submit" class="" value="Submit"></span>
+				                <div class="clear"></div>
+				               </div>
+				           </form>
+							</div>
 			</div>
+			<!----//End-contact---->
 		</div>
 		<!---- start-bottom-grids---->
 		<?php
@@ -202,4 +175,3 @@
 		<!---//End-wrap---->
 	</body>
 </html>
-

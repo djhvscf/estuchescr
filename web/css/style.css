@@ -31,10 +31,10 @@ body{
 	margin:0 auto;
 }
 .top-header{
-	background:#08080B;
+	background:#0091D4;
 }
 .top-header-left{
-	float:left;
+	float:right;
 	width:10%;
 	padding: 0.25em 0 0 0;
 }
@@ -108,9 +108,9 @@ body{
 	font-size:0.85em;
 }
 .vticker li{
-	color:#F06B6B;
+	color:#c0c0c0;
 	font-size:0.8em;
-	font-weight:100;
+	font-weight:600;
 }
 .top-header-right ul li{
 	display:inline-block;
@@ -168,7 +168,7 @@ body{
 	width: 131px;
 	height: 60px;
 	display: inline-block;
-	background: url(../images/image-sprit.png) no-repeat -57px -3px;
+	background: url(../images/logo.png) no-repeat -57px -3px;
 }
 .logo{
 	position:relative;

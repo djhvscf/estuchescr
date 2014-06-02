@@ -3,9 +3,13 @@
 class AccesoDatos{	
 
 	var $enlace;
-
+	var $server = "localhost:3306";
+	var $user = "root";
+	var $password = "mtrlnk"; 
+	var $database = "estuchescr";
+	
 	public function AccesoDatos(){
-		$enlace = mysql_connect("localhost:3306", "root","mtrlnk");
+		$enlace = mysql_connect("localhost:3306", "root", "mtrlnk");
 		if  (!$enlace) {
 			die('No pudo conectarse: ' . mysql_error());
 		}

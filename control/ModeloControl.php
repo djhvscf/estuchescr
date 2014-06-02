@@ -1,5 +1,5 @@
 <?php
-//include "AccesoDatos.php";
+include "bd/AccesoDatos.php";
 //include "Marca.php";
 class ModeloControl {
 	
@@ -14,8 +14,8 @@ class ModeloControl {
 	{
 		$sql = "";
 		$rs = false;
-		$sql = "SELECT modelo.idMarca, modelo.nombre, modelo.descripcion
-		FROM modelo WHERE modelo.idMarca = '".$idMarca."'";
+		$sql = "SELECT modelo.idModelo, modelo.nombre, modelo.descripcion, modelo.precio, fotografia.idfotografia
+		FROM modelo LEFT JOIN fotografia on fotografia.idModelo = modelo.idModelo WHERE modelo.idMarca = '".$idMarca."'";
 		
 		$rs = $this->acceso->ejecutarSQL($sql);
 

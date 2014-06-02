@@ -4,7 +4,7 @@
 		<title>Estuches Costa Rica</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="utf-8">
-		<link rel="shortcut icon" href="favicon.ico" />
+		 <link rel="shortcut icon" href="favicon.ico" />
 		<link href="web/css/style.css" rel='stylesheet' type='text/css' />
 		<link rel="stylesheet" type="text/css" href="web/css/jquery-ui.css">
 		<!----webfonts---->
@@ -80,18 +80,22 @@
 		<!---//move-top-top---->
 	</head>
 	<body>
-	<?php
-	include ("control/EstucheControl.php");
-	$idModelo= $_GET['modelo'];
-	$estucheControl = new EstucheControl();
-	$listarModelos=$estucheControl->getEstucheByModelo($idModelo);
-	?>
 		<!---start-wrap---->
 		<!---start-header---->
 		<?php
 			include ("header.php");
 		?>
 		<!---//End-header---->
+		<!----start-image-slider---->
+		<div class="img-slider">
+			<div class="wrap">
+			<ul id="jquery-demo">
+				
+			</ul>
+			</div>
+		</div>
+		<div class="clear"> </div>
+		<!----//End-image-slider---->
 		<!--- start-content---->
 		<div class="content">
 			<div class="wrap">
@@ -104,51 +108,6 @@
 							<!---//End-rate---->
 							<!---caption-script---->
 							<!---//caption-script---->
-							<?php
-								$rowCount = 1;
-								while ($row = mysql_fetch_array($listarModelos))
-								{
-									if($rowCount % 3 == 0)
-									{
-										echo "<div onclick='location.href='details.html';'  class='product-grid fade last-grid'>";
-									}
-									else
-									{
-										echo "<div onclick='location.href='details.html';'  class='product-grid fade'>";
-									}
-										echo "<div class='product-grid-head'>";
-										echo "<ul class='grid-social'>";
-											echo "<li><a class='facebook' href='#'><span> </span></a></li>";
-											echo "<li><a class='twitter' href='#'><span> </span></a></li>";
-											echo "<li><a class='googlep' href='#'><span> </span></a></li>";
-											echo "<div class='clear'> </div>";
-										echo "</ul>";
-										echo "<div class='block'>";
-											
-										echo "</div>";
-									echo "</div>";
-									echo "<div class='product-pic'>";
-									echo "<a href='#'>";
-									echo "<img src='utils/imagen_mostrar.php?id=".$row[idfotografia]."'>";
-									echo "</a>";
-									echo "<p>";
-									echo "<a href='#'>$row[nombre]</a>";
-									echo "<span>$row[descripcion]</span>";
-									echo "</p>";
-									echo "</div>";
-									echo "<div class='product-info'>";
-									echo "<div class='product-info-cust'>";
-									echo "<a href='#'>Ver estuches</a>";
-									echo "</div>";
-									echo "<div class='clear'> </div>";
-									echo "</div>";
-									echo "<div class='more-product-info'>";
-									echo "<span> </span>";
-									echo "</div>";
-									echo "</div>";
-									$rowCount ++;
-								}
-							?>
 						<div class="clear"> </div>
 					</div>
 				</div>
@@ -169,4 +128,3 @@
 		<!---//End-wrap---->
 	</body>
 </html>
-
