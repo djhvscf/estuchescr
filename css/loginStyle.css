@@ -16,7 +16,7 @@ margin:auto;
 width:976px;
 height:180px;
 background-color: #FFFFFF;
-background-image:url(../img/banerLogin.png);
+background-image:url(../web/images/logo.png);
 background-repeat:no-repeat;
 }
 
@@ -79,7 +79,7 @@ font-size: 14px;
 border-color: #DDD;
 border: 1px solid #BBB;
 border-radius: 5px;
-display: block;
+margin-left:-140px;
 width: 180px;
 }
 
@@ -105,14 +105,13 @@ font-size: 12px;
 font-weight: bold;
 font-family: Helvetica, Arial, sans-serif;
 margin-left: 100px;
-background-color: #00A5F0;
+background: #428bca;
 color: white;
 border: 1px solid rgba(0, 0, 0, .2);
 text-shadow: 0 -1px rgba(0, 0, 0, .2);
 text-align: center;
 
 }
-
 
 .footer {
 margin-top: 200px;

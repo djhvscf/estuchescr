@@ -1,4 +1,10 @@
 <?php
+/**
+* Clase Modelo -> Modelos de Marca de teléfono celular
+*
+* @package    classes
+* @author     Dennis Hernández V. <djhv92@hotmail.com>
+*/
 class Modelo {
 	var $idModelo;
 	var $nombre;
@@ -8,56 +14,64 @@ class Modelo {
 	public function __construct() {}
 	
 	/**
-	 * @return the $idModelo
+	 * Devuelve el id del modelo
+	 * @return int $idModelo
 	 */
 	public function getIdModelo() {
 		return $this->idModelo;
 	}
 
 	/**
-	 * @return the $nombre
+	 * Devuelve el nombre del modelo
+	 * @return string $nombre
 	 */
 	public function getNombre() {
 		return $this->nombre;
 	}
 
 	/**
-	 * @return the $descripcion
+	 * Devuelve la descripción del modelo
+	 * @return string $descripcion
 	 */
 	public function getDescripcion() {
 		return $this->descripcion;
 	}
 
 	/**
-	 * @return the $idMarca
+	 * Devuelve el id de la marca del modelo
+	 * @return int $idMarca
 	 */
 	public function getIdMarca() {
 		return $this->idMarca;
 	}
 
 	/**
-	 * @param field_type $idModelo
+	 * Setea el id del modelo
+	 * @param int $idModelo
 	 */
 	public function setIdModelo($idModelo) {
 		$this->idModelo = $idModelo;
 	}
 
 	/**
-	 * @param field_type $nombre
+	 * Setea el nombre del modelo
+	 * @param string $nombre
 	 */
 	public function setNombre($nombre) {
 		$this->nombre = $nombre;
 	}
 
 	/**
-	 * @param field_type $descripcion
+	 * Setea la descripción del modelo
+	 * @param string $descripcion
 	 */
 	public function setDescripcion($descripcion) {
 		$this->descripcion = $descripcion;
 	}
 
 	/**
-	 * @param field_type $idMarca
+	 * Setea el id de la marca del modelo
+	 * @param int $idMarca
 	 */
 	public function setIdMarca($idMarca) {
 		$this->idMarca = $idMarca;

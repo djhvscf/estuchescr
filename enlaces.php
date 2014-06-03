@@ -4,7 +4,7 @@
 					<div class="bottom-top-grid">
 						<h4>Obtener ayuda</h4>
 						<ul>
-							<li><a href="#">Contactenos</a></li>
+							<li><a href="contacto.php">Contactenos</a></li>
 							<li><a href="#">Compras</a></li>
 							<li><a href="#">Entregas</a></li>
 							<li><a href="#">Pedidos</a></li>

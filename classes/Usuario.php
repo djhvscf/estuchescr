@@ -1,4 +1,10 @@
 <?php
+/**
+* Clase Usuario -> Administradores del sitio Estuches Costa Rica
+*
+* @package    classes
+* @author     Dennis Hernández V. <djhv92@hotmail.com>
+*/
 class Usuario {
 	var $idUsuario;
 	var $nombre;
@@ -7,47 +13,51 @@ class Usuario {
 	public function __construct() {}
 	
 	/**
-	 * @return the $idUsuario
+	 * Devuelve el id del usuario
+	 * @return int $idUsuario
 	 */
 	public function getIdUsuario() {
 		return $this->idUsuario;
 	}
 
 	/**
-	 * @return the $nombre
+	 * Devuelve el nombre del usuario
+	 * @return string $nombre
 	 */
 	public function getNombre() {
 		return $this->nombre;
 	}
 
 	/**
-	 * @return the $contrasenna
+	 * Devuelve la contrasenna del usuario
+	 * @return string $contrasenna
 	 */
 	public function getContrasenna() {
 		return $this->contrasenna;
 	}
 
 	/**
-	 * @param field_type $idUsuario
+	 * Setea el id del usuario
+	 * @param int $idUsuario
 	 */
 	public function setIdUsuario($idUsuario) {
 		$this->idUsuario = $idUsuario;
 	}
 
 	/**
-	 * @param field_type $nombre
+	 * Setea el nombre del usuario
+	 * @param string $nombre
 	 */
 	public function setNombre($nombre) {
 		$this->nombre = $nombre;
 	}
 
 	/**
-	 * @param field_type $contrasenna
+	 * Setea la contrasenna del usuario
+	 * @param string $contrasenna
 	 */
 	public function setContrasenna($contrasenna) {
 		$this->contrasenna = $contrasenna;
 	}
-
-	
 }
 ?>

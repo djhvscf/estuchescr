@@ -1,15 +1,30 @@
 <?php
+/**
+* Include de la clase que se conecta a la base de datos
+*/
 include "bd/AccesoDatos.php";
-//include "Marca.php";
+
+/**
+* Clase MarcaControl-> Controlador de la clase Marca
+*
+* @package    control
+* @author     Dennis Hernández V. <djhv92@hotmail.com>
+*/
 class MarcaControl {
 	
 	var $acceso;
-	//$marca = new Marca();
 	
+	/**
+	 * Contructor que inicializa la conexion a la base de datos
+	 */
 	function MarcaControl(){	
 		$this->acceso=new AccesoDatos();
 	}
-		
+	
+	/**
+	 * Hace una consulta a la base de datos a la tabla Marca
+	 * @return resulset $rs
+	 */	
 	public function getMarcas()
 	{
 		$sql = "";

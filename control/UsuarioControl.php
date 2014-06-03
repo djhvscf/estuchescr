@@ -1,14 +1,32 @@
 <?php
+/**
+* Include de la clase que se conecta a la base de datos
+*/
 include "../bd/AccesoDatos.php";
-include "../classes/Usuario.php";
+
+/**
+* Clase UsuarioControl-> Controlador de la clase Usuario
+*
+* @package    control
+* @author     Dennis Hernández V. <djhv92@hotmail.com>
+*/
 class UsuarioControl {
 	
 	var $acceso;
 	
+	/**
+	 * Contructor que inicializa la conexion a la base de datos
+	 */
 	function UsuarioControl(){	
 		$this->acceso=new AccesoDatos();	
 	}
 		
+	/**
+	 * Hace una consulta a la base de datos a la tabla Usuario para saber si el usuario existe
+	 * @param string $nombre_usuario Nombre del usuario
+	 * @param string $contrasena Contrasena del usuario
+	 * @return Array $consulta
+	 */
 	public function buscarUsuario($nombre_usuario, $contrasena){
 		$sql = "";
 		$rs = false;

@@ -1,4 +1,10 @@
 <?php
+/**
+* Clase Estuche -> Estuches de un modelo
+*
+* @package    classes
+* @author     Dennis Hernández V. <djhv92@hotmail.com>
+*/
 class Estuche {
 	var $idEstuche;
 	var $idModelo;
@@ -6,28 +12,32 @@ class Estuche {
 	public function __construct() {}
 	
 	/**
-	 * @return the $idEstuche
+	 * Devuelve el id del estuche
+	 * @return int $idEstuche
 	 */
 	public function getIdEstuche() {
 		return $this->idEstuche;
 	}
 
 	/**
-	 * @return the $idModelo
+	 * Devuelve el id del modelo
+	 * @return int $idModelo
 	 */
 	public function getIdModelo() {
 		return $this->idModelo;
 	}
 
 	/**
-	 * @param field_type $idEstuche
+	 * Setea el id del estuche
+	 * @param int $idEstuche
 	 */
 	public function setIdEstuche($idEstuche) {
 		$this->idEstuche = $idEstuche;
 	}
 
 	/**
-	 * @param field_type $idModelo
+	 * Setea el id del modelo
+	 * @param int $idModelo
 	 */
 	public function setIdModelo($idModelo) {
 		$this->idModelo = $idModelo;

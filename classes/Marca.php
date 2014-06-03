@@ -1,4 +1,10 @@
 <?php
+/**
+* Clase Marca -> Marca de teléfono celular
+*
+* @package    classes
+* @author     Dennis Hernández V. <djhv92@hotmail.com>
+*/
 class Marca {
 	var $idMarca;
 	var $nombre;
@@ -7,42 +13,48 @@ class Marca {
 	public function __construct() {}
 	
 	/**
-	 * @return the $idMarca
+	 * Devuelve el id de la marca
+	 * @return int $idMarca
 	 */
 	public function getIdMarca() {
 		return $this->idMarca;
 	}
 
 	/**
-	 * @return the $nombre
+	 * Devuelve el nombre de la marca
+	 * @return string $nombre
 	 */
 	public function getNombre() {
 		return $this->nombre;
 	}
 
 	/**
-	 * @return the $descripcion
+	 * Devuelve la descripción de la marca
+	 * @return string $descripcion
 	 */
 	public function getDescripcion() {
 		return $this->descripcion;
 	}
 
 	/**
-	 * @param field_type $idMarca
+	 * Setea el id de la marca
+	 * @param int $idMarca
 	 */
 	public function setIdMarca($idMarca) {
 		$this->idMarca = $idMarca;
 	}
 
 	/**
-	 * @param field_type $nombre
+	 * Setea el nombre de la marca
+	 * @param string $nombre
 	 */
 	public function setNombre($nombre) {
 		$this->nombre = $nombre;
 	}
 
 	/**
-	 * @param field_type $descripcion
+	 * Setea la descripción de la marca
+	 * @param string $descripcion
 	 */
 	public function setDescripcion($descripcion) {
 		$this->descripcion = $descripcion;
