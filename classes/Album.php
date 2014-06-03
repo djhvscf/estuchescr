@@ -3,7 +3,7 @@
 * Clase Album -> Colección de fotos
 *
 * @package    classes
-* @author     Dennis Hernández V <djhv92@hotmail.com>
+* @author     Dennis Hernández V. <djhv92@hotmail.com>
 */
 class Album {
 	var $idAlbum;

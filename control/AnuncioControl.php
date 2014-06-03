@@ -1,12 +1,25 @@
 <?php
+/**
+* Clase AnuncioControl-> Controlador de la clase Anuncio
+*
+* @package    control
+* @author     Dennis Hernández V. <djhv92@hotmail.com>
+*/
 class AnuncioControl {
 	
 	var $acceso;
 	
+	/**
+	 * Contructor que inicializa la conexion a la base de datos
+	 */
 	function AnuncioControl(){
 		$this->acceso=new AccesoDatos();
 	}
 	
+	/**
+	 * Hace una consulta a la base de datos a la tabla Anuncio
+	 * @return resulset $rs
+	 */
 	public function getAnuncios()
 	{
 		$sql = "";

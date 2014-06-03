@@ -3,7 +3,7 @@
 * Clase Fotografia -> Fotografia de los modelos, marcas, anuncios que pertenecen a un album
 *
 * @package    classes
-* @author     Dennis Hernández V <djhv92@hotmail.com>
+* @author     Dennis Hernández V. <djhv92@hotmail.com>
 */
 class Fotografia {
 	var $idFotografia;

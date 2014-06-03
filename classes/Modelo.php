@@ -3,7 +3,7 @@
 * Clase Modelo -> Modelos de Marca de teléfono celular
 *
 * @package    classes
-* @author     Dennis Hernández V <djhv92@hotmail.com>
+* @author     Dennis Hernández V. <djhv92@hotmail.com>
 */
 class Modelo {
 	var $idModelo;

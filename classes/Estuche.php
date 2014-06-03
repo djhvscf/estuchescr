@@ -3,7 +3,7 @@
 * Clase Estuche -> Estuches de un modelo
 *
 * @package    classes
-* @author     Dennis Hernández V <djhv92@hotmail.com>
+* @author     Dennis Hernández V. <djhv92@hotmail.com>
 */
 class Estuche {
 	var $idEstuche;

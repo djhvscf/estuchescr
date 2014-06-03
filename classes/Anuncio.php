@@ -3,7 +3,7 @@
 * Clase Anuncio -> Anuncios del sitio Estuches Costa Rica
 *
 * @package    classes
-* @author     Dennis Hernández V <djhv92@hotmail.com>
+* @author     Dennis Hernández V. <djhv92@hotmail.com>
 */
 class Anuncio {
 	var $idAnuncio;
