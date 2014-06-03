@@ -10,7 +10,7 @@
 		$estado = "";
 		$redirect = "../index.php";
 		session_start();
-		if(isset($_SESSION['idUsuario'])) {
+		if(isset($_SESSION['idUsuario1'])) {
 			header ("Location: index.php");
 		}
 		if(array_key_exists('state',$_GET)){
@@ -34,7 +34,9 @@
 		}
 	?>
 	<div class = "login-wrap">
-		<div id = "headerLogin"></div>
+		<div>
+		<img src="web/images/logo.png" alt="Estuches Costa Rica" style="max-width: 22%; min-height: 20%; max-height: 36%; min-width: 19%; margin-left: 40%;">
+		</div>
 		<div class="container">
 			<div class="row">
 				<div class="span8 offset2">
@@ -64,8 +66,5 @@
 			</div>
 		</form>
 	</div>
-	<div class="footer">
-		<hr> <p>Copyright Yaisoft 2012 &copy; </p>	
-	</div>		
 </body>
 </html>

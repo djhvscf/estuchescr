@@ -1839,7 +1839,7 @@ span.mail a:hover{
 	border: 1px solid rgba(228, 93, 93, 0.33);
 }
 .contact-form input[type="submit"] {
-	background: #E45D5D;
+	background: #428bca;
 	color: #FFF;
 	padding: .9em 3em;
 	display: inline-block;
@@ -1856,14 +1856,14 @@ span.mail a:hover{
 	border-top: none;
 	border-right: none;
 	border-left: none;
-	border-bottom: 4px solid #B93838;
+	border-bottom: 0px solid #B93838;
 	outline: none;
 	cursor: pointer;
 	font-family: 'Open Sans', sans-serif;
 }
 .contact-form input[type="submit"]:hover{
-	background: #1C1C20;
-	border-bottom: 4px solid #333;
+	background: #3276b1;
+	border-bottom: 0px solid #333;
 }
 .span_1_of_first1 h5{
 	color: #08080B;

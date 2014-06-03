@@ -60,13 +60,13 @@
 					          <div class="contact-form">
 								<div class="contact-to">
 			                     	<input type="text" class="text" name="nombre" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre';}">
-								 	<input type="text" class="text" name="correo" value="Correo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Correo';}">
+								 	<input type="text" class="text" name="correo" autocomplete="off" value="Correo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Correo';}">
 								 	<input type="text" class="text" name="tema" value="Tema" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tema';}">
 								</div>
 								<div class="text2">
 				                   <textarea value="Mensaje:" name="mensaje" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mensaje';}">Mensaje</textarea>
 				                </div>
-				               <span><input type="submit" class="" name="submit" value="Submit"></span>
+				               <span><input type="submit" class="" name="submit" value="Enviar correo"></span>
 				                <div class="clear"></div>
 				               </div>
 				           </form>

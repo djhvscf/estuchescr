@@ -1,13 +1,32 @@
 <?php
+if($_REQUEST["nombre"] != "Nombre" && $_REQUEST["correo"] != "Correo" && $_REQUEST["mensaje"] != "Mensaje")
+{
  			$userName=$_REQUEST['nombre'];
 			$userEmail=$_REQUEST['correo'];
 			$userPhone="22585585";
 			$userMsg=$_REQUEST['mensaje'];
 			$subject = "Mensaje de: ".$userName; 
-			$message = '<html><head><title>'.$subject.'</title></head><body><table><tr><td>Correo :  </td><td> '.$userEmail.'</td></tr>
-<tr><td>Teléfono: </td><td> '.$userPhone.'</td></tr><tr><td>Nombre: </td><td> '.$userName.'</td></tr><tr><td>Mensaje: </td><td> '.$userMsg.'</td>
-</tr></table></body></html>';
-			//$message = "Email id :  ".$userEmail. "\r\nPhone No : ".$userPhone."\r\nName : ".$userName."\r\nSays : ".$userMsg;
+			$message = '<html>
+							<head>
+								<title>'.$subject.'</title>
+							</head>
+							<body>
+								<table>
+									<tr>
+										<td>Correo :  </td>
+										<td> '.$userEmail.'</td>
+									</tr>
+									<tr>
+										<td>Nombre: </td>
+										<td> '.$userName.'</td>
+									</tr>
+									<tr>
+										<td>Mensaje: </td>
+										<td> '.$userMsg.'</td>
+									</tr>
+								</table>
+							</body>
+						</html>';
 			$to="djhv92@hotmail.com";
 			$headers = "From: " . strip_tags($userEmail) . "\r\n";
 			$headers .= "Reply-To: ". strip_tags($userEmail) . "\r\n";
@@ -21,8 +40,14 @@
 				exit();
           }else{
           	  	$mail_status='yes';
-          	  	echo "El correo fue enviado correctamente. Pronto nos pondremos en contacto. Gracias";
-				//header("Location: inicio.php");
+          	  	echo "<script language='javascript'>
+				alert('Mensaje enviado, muchas gracias.');
+				window.location.href = 'inicio.php';
+				</script>";
 				exit();
          }
+}else
+{
+	header("Location: contacto.php");
+}
 ?>
