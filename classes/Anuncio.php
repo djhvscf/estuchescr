@@ -1,6 +1,12 @@
 <?php
+/**
+* Clase Anuncio -> Anuncios del sitio Estuches Costa Rica
+*
+* @package    classes
+* @author     Dennis Hernández V <djhv92@hotmail.com>
+*/
 class Anuncio {
-	var $idanuncio;
+	var $idAnuncio;
 	var $titulo;
 	var $descripcion;
 	var $esActivo;
@@ -8,56 +14,63 @@ class Anuncio {
 	public function __construct() {}
 	
 	/**
-	 * @return the $idanuncio
+	 * Devuelve el id del anuncio
+	 * @return int $idAnuncio
 	 */
-	public function getIdanuncio() {
-		return $this->idanuncio;
+	public function getIdAnuncio() {
+		return $this->idAnuncio;
 	}
 
 	/**
-	 * @return the $titulo
+	 * Devuelve el titulo del anuncio
+	 * @return string $titulo
 	 */
 	public function getTitulo() {
 		return $this->titulo;
 	}
 
 	/**
-	 * @return the $descripcion
+	 * Devuelve la descripcion del anuncio
+	 * @return string $descripcion
 	 */
 	public function getDescripcion() {
 		return $this->descripcion;
 	}
 
 	/**
-	 * @return the $esActivo
+	 * Devuelve si el anuncio está activo
+	 * @return boolean $esActivo
 	 */
 	public function getEsActivo() {
 		return $this->esActivo;
 	}
 
 	/**
-	 * @param field_type $idanuncio
+	 * @param field_type $idAnuncio
 	 */
-	public function setIdanuncio($idanuncio) {
-		$this->idanuncio = $idanuncio;
+	public function setIdAnuncio($idAnuncio) {
+		$this->idanuncio = $idAnuncio;
 	}
 
 	/**
-	 * @param field_type $titulo
+	 * Setea el id del anuncio
+	 * @param int $titulo
 	 */
 	public function setTitulo($titulo) {
 		$this->titulo = $titulo;
 	}
 
 	/**
-	 * @param field_type $descripcion
+	 * Setea la descripción del anuncio
+	 * @param string $descripcion
 	 */
 	public function setDescripcion($descripcion) {
 		$this->descripcion = $descripcion;
 	}
 
 	/**
-	 * @param field_type $esActivo
+	 * Setea si el anuncio está activo
+	 * @param boolean $esActivo
 	 */
 	public function setEsActivo($esActivo) {
 		$this->esActivo = $esActivo;

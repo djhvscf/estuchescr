@@ -51,7 +51,6 @@
 											echo "<div class='clear'> </div>";
 										echo "</ul>";
 										echo "<div class='block'>";
-											
 										echo "</div>";
 									echo "</div>";
 									echo "<div class='product-pic'>";
