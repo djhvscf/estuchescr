@@ -35,5 +35,17 @@ class MarcaControl {
 		$this->acceso->cerrarConexion();
 		return $rs;
 	}
+	
+	/**
+	 * Registra una nueva marca en la base de datos 
+	 * @param $nombre Nombre de la marca
+	 * @param $descripcion Descripción de la marca
+	 */
+	public function agregarMarca($marca)
+	{
+		$sql="INSERT INTO Marca(nombre, descripcion) VALUES ('".$marca->getNombre()."', '".$marca->getDescripcion()."')";
+		$this->acceso->ejecutarSQL($sql);
+		$this->acceso->cerrarConexion();
+	}
 }
 ?>

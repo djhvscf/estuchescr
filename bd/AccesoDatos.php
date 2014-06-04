@@ -1,13 +1,17 @@
 <?php
-
+/**
+ * Clase AccesoDatos-> Ayuda a conectarse a la base de datos y ejecutar consultas
+ *
+ * @package    bd
+ * @author     Dennis Hernández V. <djhv92@hotmail.com>
+ */
 class AccesoDatos{	
 
 	var $enlace;
-	var $server = "localhost:3306";
-	var $user = "root";
-	var $password = "mtrlnk"; 
-	var $database = "estuchescr";
 	
+	/**
+	 * Establece la conexión a la base de datos
+	 */
 	public function AccesoDatos(){
 		$enlace = mysql_connect("localhost:3306", "root", "mtrlnk");
 		if  (!$enlace) {
@@ -16,12 +20,17 @@ class AccesoDatos{
 		mysql_select_db("estuchescr", $enlace);
 	}
 	
+	/**
+	 * Ejecuta una consulta a la base de datos
+	 * @return resultSet resultado de la consulta
+	 */
 	public function ejecutarSQL($psql){	
-		$resultado = mysql_query($psql);
-		//echo "el rs es: ".$resultado;
-		return $resultado;
+		return mysql_query($psql);
 	}
 	
+	/**
+	 * Cierra la conexión con la base de datos
+	 */
 	public function cerrarConexion(){
 		mysql_close($enlace);
 	}
