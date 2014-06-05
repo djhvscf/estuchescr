@@ -13,4 +13,7 @@ Tecnología
 * CSS3
 * Javascript
 * MySQL 6.0
+<<<<<<< HEAD
+=======
 
+>>>>>>> master

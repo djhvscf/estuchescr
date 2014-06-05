@@ -23,6 +23,7 @@
 		<!----start-alert-scroller---->
 		<script src="web/js/jquery.min.js"></script>
 		<script type="text/javascript" src="web/js/jquery.easy-ticker.js"></script>
+		<script type="text/javascript" src="web/js/bootstrapValidator.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
 			$('#demo').hide();
