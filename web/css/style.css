@@ -1808,7 +1808,7 @@ span.mail a:hover{
 	margin-left:10px;
 }
 .text2 input[type="text"], .text2 textarea {
-	width: 97.7%;
+	width: 83%;
 	margin: 12px 0;
 	border: 1px solid rgba(192, 192, 192, 0.61);
 	color: #626262;
@@ -1833,7 +1833,7 @@ span.mail a:hover{
 	-o-border-radius: 4px;
 }
 .text2 textarea{
-	height:180px;
+	height:120px;
 }
 .text2 input[type="text"]:hover,.text2 textarea:hover,.contact-to input[type="text"]:hover{
 	border: 1px solid rgba(228, 93, 93, 0.33);
@@ -2760,4 +2760,46 @@ span.mail a:hover{
 	.product-pic p {
 		padding: 0 1em 1em 1em;
 	}
+}
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+
+.alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 18px;
+  color: #3a87ad;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  width: 28%;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.alert-success {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.alert-danger,
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
 }

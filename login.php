@@ -2,8 +2,8 @@
 <head>
 	<title> Estuches Costa Rica </title>	
 	<link href="css/bootstrap.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/loginStyle.css" />
-	<script type="text/javascript" src="js/loginValidation.js"></script>
+	<link rel="stylesheet" type="text/css" href="web/css/loginStyle.css" />
+	<script type="text/javascript" src="web/js/loginValidation.js"></script>
 </head>
 <body id="login">
 	<?php

@@ -11,7 +11,7 @@
 		<!-- start menu -->
 		<link href="web/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 		<link rel="stylesheet" href="web/css/slippry.css">
-		
+		<link rel="stylesheet" href="web/css/buttons.css">
 		<script type="application/x-javascript"> 
 			addEventListener("load", function(){ 
 											setTimeout(hideURLbar, 0); 
@@ -23,6 +23,7 @@
 		<!----start-alert-scroller---->
 		<script src="web/js/jquery.min.js"></script>
 		<script type="text/javascript" src="web/js/jquery.easy-ticker.js"></script>
+		<script type="text/javascript" src="web/js/photoUpload.js"></script>
 		<script type="text/javascript" src="web/js/bootstrapValidator.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
@@ -61,7 +62,6 @@
 			            }
 			 });
 			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-			
 			});//]]>  
 		</script>
 		<!----//End-pricerage-seletion---->
@@ -69,8 +69,7 @@
 		<script type="text/javascript" src="web/js/move-top.js"></script>
 		<script type="text/javascript" src="web/js/easing.js"></script>
 		<script type="text/javascript">
-			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
+			jQuery(document).ready(function($) {$(".scroll").click(function(event){		
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
 				});
