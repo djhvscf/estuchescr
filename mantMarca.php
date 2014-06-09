@@ -19,6 +19,7 @@
 					 		include ("control/MarcaControl.php");
 					 		include ("control/FotografiaControl.php");
 					 		include ("classes/Marca.php");
+					 		
 							if(array_key_exists('nombre',$_POST))
 							{
 								$isValidForm = false;

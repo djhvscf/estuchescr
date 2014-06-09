@@ -49,5 +49,18 @@ class MarcaControl {
 		$this->acceso->cerrarConexion();
 		return mysql_insert_id();
 	}
+	
+	public function getMarcaById($idMarca)
+	{
+		$sql = "";
+		$rs = false;
+		$sql = "SELECT marca.idMarca, marca.nombre, marca.descripcion, fotografia.idfotografia
+		FROM marca LEFT JOIN fotografia on fotografia.idMarca = marca.idMarca WHERE marca.idMarca = '".$idMarca."'";
+		
+		$rs = $this->acceso->ejecutarSQL($sql);
+		
+		$this->acceso->cerrarConexion();
+		return $rs;
+	}
 }
 ?>
