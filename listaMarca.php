@@ -36,7 +36,7 @@
 										echo "<tr>";
 										$idMarca = $row[0];
 										$queryString = "marca=$idMarca";
-										$urlVer = "mantMarca.php?" . $queryString;
+										$urlVer = "detalleMarca.php?" . $queryString;
 										echo "<td>$row[1]</td>";
 										echo "<td>$row[2]</td>";
 										echo "<td><a href=$urlVer>Ver</a></td>";
