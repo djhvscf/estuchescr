@@ -62,5 +62,15 @@ class MarcaControl {
 		$this->acceso->cerrarConexion();
 		return $rs;
 	}
+	
+	public function updateMarca($marca)
+	{
+		$sql = "";
+		$rs = false;
+		$sql = "UPDATE marca SET marca.nombre = '".$marca->getNombre()."', marca.descripcion = '".$marca->getDescripcion()."' 
+				WHERE marca.idMarca = ".$marca->getIdMarca()."";
+		$rs = $this->acceso->ejecutarSQL($sql);
+		$this->acceso->cerrarConexion();
+	}
 }
 ?>
