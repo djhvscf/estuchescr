@@ -86,7 +86,7 @@
 									echo "</div>";
 									echo "<div class='product-pic'>";
 									echo "<a href='#'>";
-									echo "<img src='utils/imagen_mostrar.php?id=".$row[idfotografia]."'>";
+									echo "<img style='height: 225px;' src='utils/imagen_mostrar.php?id=".$row[idfotografia]."'>";
 									echo "</a>";
 									echo "<p>";
 									echo "<a href='#'></a>";
@@ -95,7 +95,7 @@
 									echo "</div>";
 									echo "<div class='product-info'>";
 									echo "<div class='product-info-cust'>";
-									echo "<a href=$urlVer>Ver modelos</a>";
+									echo "<a class='vermodelo' href=$urlVer>Ver modelos</a>";
 									echo "</div>";
 									echo "<div class='clear'> </div>";
 									echo "</div>";
@@ -112,6 +112,13 @@
 				<div class="clear"> </div>
 			</div>
 		</div>
+		
+		<!---- pop up---->
+		<?php
+			include ("loadpopup.php");
+		?>
+		<!---- pop up---->
+		
 		<!---- start-bottom-grids---->
 		<?php
 			include ("enlaces.php");
