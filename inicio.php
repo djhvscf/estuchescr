@@ -20,7 +20,7 @@
 		?>
 		<!---//End-header---->
 		<!----start-image-slider---->
-		<div class="img-slider">
+		<div class="img-slider" style="box-shadow: 6px 0px 8px #888;">
 			<div class="wrap">
 			<ul id="jquery-demo">
 				<?php
@@ -46,7 +46,7 @@
 		<div class="clear"> </div>
 		<!----//End-image-slider---->
 		<!--- start-content---->
-		<div class="content">
+		<div class="content" style="background-color: #f7f7f7;">
 			<div class="wrap">
 				<?php
 					include ("publicidad.php");
