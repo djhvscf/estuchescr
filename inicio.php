@@ -20,7 +20,7 @@
 		?>
 		<!---//End-header---->
 		<!----start-image-slider---->
-		<div class="img-slider">
+		<div class="img-slider" style="box-shadow: 6px 0px 8px #888;">
 			<div class="wrap">
 			<ul id="jquery-demo">
 				<?php
@@ -46,12 +46,10 @@
 		<div class="clear"> </div>
 		<!----//End-image-slider---->
 		<!--- start-content---->
-		<div class="content">
+		<div class="content" style="background-color: #f7f7f7;">
 			<div class="wrap">
-				<?php
-					include ("publicidad.php");
-				?>
-				<div class="content-right">
+				
+				<div>
 					<div class="product-grids">
 						<!--- start-rate---->
 							<!---//End-rate---->
@@ -85,22 +83,22 @@
 										echo "</div>";
 									echo "</div>";
 									echo "<div class='product-pic'>";
-									echo "<a href='#'>";
-									echo "<img src='utils/imagen_mostrar.php?id=".$row[idfotografia]."'>";
+									echo "<a class='vermodelo' href=$urlVer>";
+									echo "<img style='height: 225px;' src='utils/imagen_mostrar.php?id=".$row[idfotografia]."'>";
 									echo "</a>";
 									echo "<p>";
-									echo "<a href='#'></a>";
+									echo "<a class='vermodelo' href=$urlVer></a>";
 									echo "<span>$row[descripcion]</span>";
 									echo "</p>";
 									echo "</div>";
 									echo "<div class='product-info'>";
 									echo "<div class='product-info-cust'>";
-									echo "<a href=$urlVer>Ver modelos</a>";
+									echo "<a class='vermodelo' href=$urlVer>Ver modelos</a>";
 									echo "</div>";
 									echo "<div class='clear'> </div>";
 									echo "</div>";
 									echo "<div class='more-product-info'>";
-									echo "<span> </span>";
+									//echo "<span> </span>";
 									echo "</div>";
 									echo "</div>";
 									$rowCount ++;
@@ -112,6 +110,13 @@
 				<div class="clear"> </div>
 			</div>
 		</div>
+		
+		<!---- pop up---->
+		<?php
+			include ("loadpopup.php");
+		?>
+		<!---- pop up---->
+		
 		<!---- start-bottom-grids---->
 		<?php
 			include ("enlaces.php");

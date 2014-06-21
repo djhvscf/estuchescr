@@ -25,6 +25,8 @@
 		<script type="text/javascript" src="web/js/jquery.easy-ticker.js"></script>
 		<script type="text/javascript" src="web/js/photoUpload.js"></script>
 		<script type="text/javascript" src="web/js/bootstrapValidator.min.js"></script>
+		<script type="text/javascript" src="web/js/jquery.bpopup.min.js"></script>
+		<script type="text/javascript" src="web/js/main.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
 			$('#demo').hide();
@@ -46,7 +48,8 @@
 			  adaptiveHeight: false, // height of the sliders adapts to current slide
 			  useCSS: false, // true, false -> fallback to js if no browser support
 			  autoHover: false,
-			  transition: 'fade'
+			  transition: 'easeOutBounce',
+			  speed: 1000
 			});
 		</script>
 		<!----start-pricerage-seletion---->

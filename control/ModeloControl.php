@@ -2,7 +2,7 @@
 /**
 * Include de la clase que se conecta a la base de datos
 */
-include "bd/AccesoDatos.php";
+
 
 /**
 * Clase ModeloControl-> Controlador de la clase Modelo
