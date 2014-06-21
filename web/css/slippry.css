@@ -515,7 +515,7 @@
 .img-slider{
 	position:relative;
 	margin-top:-60px;
-	margin-left: 33px;
+	/*margin-left: 33px;*/
 }
 .slider-detils{
 	position: absolute;

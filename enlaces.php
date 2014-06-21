@@ -1,4 +1,4 @@
-<div class="bottom-grids">
+<div>
 			<div class="bottom-top-grids">
 				<div class="wrap">
 					<div class="bottom-top-grid">

@@ -48,10 +48,8 @@
 		<!--- start-content---->
 		<div class="content" style="background-color: #f7f7f7;">
 			<div class="wrap">
-				<?php
-					include ("publicidad.php");
-				?>
-				<div class="content-right">
+				
+				<div>
 					<div class="product-grids">
 						<!--- start-rate---->
 							<!---//End-rate---->
@@ -85,11 +83,11 @@
 										echo "</div>";
 									echo "</div>";
 									echo "<div class='product-pic'>";
-									echo "<a href='#'>";
+									echo "<a class='vermodelo' href=$urlVer>";
 									echo "<img style='height: 225px;' src='utils/imagen_mostrar.php?id=".$row[idfotografia]."'>";
 									echo "</a>";
 									echo "<p>";
-									echo "<a href='#'></a>";
+									echo "<a class='vermodelo' href=$urlVer></a>";
 									echo "<span>$row[descripcion]</span>";
 									echo "</p>";
 									echo "</div>";
@@ -100,7 +98,7 @@
 									echo "<div class='clear'> </div>";
 									echo "</div>";
 									echo "<div class='more-product-info'>";
-									echo "<span> </span>";
+									//echo "<span> </span>";
 									echo "</div>";
 									echo "</div>";
 									$rowCount ++;
