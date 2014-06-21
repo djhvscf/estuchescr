@@ -63,6 +63,23 @@ class MarcaControl {
 		return $rs;
 	}
 	
+	public function getNombreMarcaById($idMarca)
+	{
+		$sql = "";
+		$rs = false;
+		$sql = "SELECT marca.nombre FROM marca WHERE marca.idMarca = '".$idMarca."'";
+		
+		$rs = $this->acceso->ejecutarSQL($sql);
+		$nombreMarca = "";
+		
+		while ($row = mysql_fetch_array($rs))
+		{
+			$nombreMarca = $row["nombre"];	
+		}
+		$this->acceso->cerrarConexion();
+		return $nombreMarca;
+	}
+	
 	public function updateMarca($marca)
 	{
 		$sql = "";

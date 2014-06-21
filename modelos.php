@@ -6,9 +6,12 @@
 	<body>
 	<?php
 	include ("control/ModeloControl.php");
+	include ("control/MarcaControl.php");
 	$idMarca= $_GET['marca'];
+	$marcaControl = new MarcaControl();
 	$modeloControl = new ModeloControl();
 	$listarModelos=$modeloControl->getModeloByIdMarca($idMarca);
+	$nombreMarca = $marcaControl->getNombreMarcaById($idMarca);
 	?>
 		<!---start-wrap---->
 		<!---start-header---->
@@ -17,12 +20,14 @@
 		?>
 		<!---//End-header---->
 		<!--- start-content---->
-		<div class="img-slider" style="box-shadow: 6px 0px 8px #888;">
-			<div class="wrap">
-			<div class="sy-box jquery-demo"></div>
-			</div>
+		<div style="box-shadow: 6px 0px 8px #888;font-size: 3.2em;position: fixed;width: 100%;z-index: 99; margin-top:-62px;">
+			<?php
+				echo "<div>";
+				echo "<h1 style='margin-top: 13px;color: #4c4c4c;margin-left: 30px; background-color:#FFFFFF;'>$nombreMarca</h1>";				
+				echo "</div>";
+			?>
 		</div>
-		<div class="content">
+		<div class="content" style="background-color: #f7f7f7;">
 			<div class="wrap">
 				<div>
 					<div class="product-grids">
@@ -57,7 +62,7 @@
 									echo "</div>";
 									echo "<div class='product-pic'>";
 									echo "<a href='#'>";
-									echo "<img src='utils/imagen_mostrar.php?id=".$row[idfotografia]."'>";
+									echo "<img style='height: 225px;' src='utils/imagen_mostrar.php?id=".$row[idfotografia]."'>";
 									echo "</a>";
 									echo "<p>";
 									echo "<a href='#'>$row[nombre]</a>";
