@@ -17,12 +17,14 @@
 		?>
 		<!---//End-header---->
 		<!--- start-content---->
+		<div class="img-slider" style="box-shadow: 6px 0px 8px #888;">
+			<div class="wrap">
+			<div class="sy-box jquery-demo"></div>
+			</div>
+		</div>
 		<div class="content">
 			<div class="wrap">
-				<?php
-					include ("publicidad.php");
-				?>
-				<div class="content-right">
+				<div>
 					<div class="product-grids">
 						<!--- start-rate---->
 							<!---//End-rate---->
